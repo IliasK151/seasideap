@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seaside Luxury Apartments — Kremasti, Rhodes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
@@ -11,2325 +11,357 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
   <style>
-    .iti {
-      width: 100%;
-      display: block
-    }
-
-    .form-group .iti input {
-      padding: 13px 16px 13px 52px !important
-    }
+    .iti { width: 100%; display: block }
+    .form-group .iti input { padding: 13px 16px 13px 52px !important }
 
     :root {
-      --navy: #0d1b2a;
-      --ocean: #1a3a52;
-      --gold: #c9a55a;
-      --gold-light: #e8c97a;
-      --cream: #f7f4ef;
-      --sand: #e8dece;
-      --white: #ffffff;
-      --text-dark: #1a1a2e;
-      --text-mid: #4a5568;
-      --teal: #2a7f8a
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      color: var(--text-dark);
-      background: var(--cream);
-      overflow-x: hidden
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 20px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all .4s ease
-    }
-
-    nav.scrolled {
-      background: rgba(13, 27, 42, .97);
-      backdrop-filter: blur(12px);
-      padding: 14px 60px;
-      box-shadow: 0 2px 30px rgba(0, 0, 0, .3)
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--white);
-      letter-spacing: 1px;
-      text-decoration: none;
-      position: relative;
-      z-index: 100;
-    }
-
-    .nav-logo span {
-      color: var(--gold)
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none
-    }
-
-    .nav-links a {
-      color: rgba(255, 255, 255, .85);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: color .3s
-    }
-
-    .nav-links a:hover {
-      color: var(--gold)
-    }
-
-    .nav-cta {
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      color: var(--navy) !important;
-      padding: 10px 24px !important;
-      font-size: 13px !important;
-      font-weight: 700 !important;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      background: var(--gold) !important;
-      border: 1px solid var(--gold) !important;
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, .25);
-      cursor: pointer;
-      transition: color .2s ease-in, border-color .2s ease-in;
-      text-decoration: none
-    }
-
-    .nav-cta:hover {
-      color: var(--gold) !important;
-      border-color: var(--navy) !important
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      z-index: 100;
-      position: relative;
-    }
-
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: white;
-      display: block
-    }
-
-    #hero {
-      height: 100vh;
-      min-height: 700px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(13, 27, 42, .55) 0%, rgba(13, 27, 42, .3) 40%, rgba(13, 27, 42, .65) 100%), url('343548430.jpg') center/cover no-repeat;
-      transform: scale(1.05);
-      animation: zoomOut 8s ease forwards
-    }
-
-    @keyframes zoomOut {
-      from {
-        transform: scale(1.08)
-      }
-
-      to {
-        transform: scale(1)
-      }
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 30% 60%, rgba(42, 127, 138, .15) 0%, transparent 60%)
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: white;
-      padding: 0 20px;
-      animation: fadeUp 1.2s ease .3s both
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    .hero-eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px
-    }
-
-    .hero-eyebrow::before,
-    .hero-eyebrow::after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      display: block
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(52px, 8vw, 90px);
-      font-weight: 300;
-      line-height: 1.05;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 40px rgba(0, 0, 0, .3)
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold-light)
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 2px;
-      color: rgba(255, 255, 255, .8);
-      margin-bottom: 50px
-    }
-
-    .booking-widget {
-      background: rgba(255, 255, 255, .95);
-      backdrop-filter: blur(16px);
-      border-radius: 60px;
-      padding: 10px 10px 10px 36px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      max-width: 880px;
-      margin: 0 auto;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, .08);
-      border: 1px solid rgba(255, 255, 255, .4)
-    }
-
-    .widget-field {
-      flex: 1;
-      padding: 8px 16px;
-      border-right: 1px solid rgba(0, 0, 0, .08);
-      min-width: 0;
-      border-radius: 12px;
-      transition: background-color .2s ease
-    }
-
-    .widget-field:hover {
-      background-color: rgba(0, 0, 0, .03)
-    }
-
-    .widget-field:last-of-type {
-      border-right: none
-    }
-
-    .widget-field label {
-      display: block;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      margin-bottom: 2px;
-      pointer-events: none
-    }
-
-    .widget-field input,
-    .widget-field select {
-      width: 100%;
-      border: none;
-      outline: none;
-      font-family: 'Jost', sans-serif;
-      font-size: 15px;
-      color: var(--navy);
-      background: transparent;
-      cursor: pointer;
-      font-weight: 600;
-      -webkit-appearance: none;
-      appearance: none;
-      padding: 2px 0;
-      text-overflow: ellipsis;
-      white-space: nowrap
-    }
-
-    .widget-btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      z-index: 10;
-      margin-left: auto;
-      padding: 16px 36px;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--white);
-      background: var(--navy);
-      border: none;
-      border-radius: 50px;
-      box-shadow: 0 8px 24px rgba(13, 27, 42, .25);
-      cursor: pointer;
-      transition: all .3s cubic-bezier(.25, 1, .5, 1);
-      flex-shrink: 0
-    }
-
-    .widget-btn:hover {
-      background: var(--gold);
-      box-shadow: 0 10px 28px rgba(201, 165, 90, .4);
-      transform: translateY(-2px)
-    }
-
-    .widget-btn .btn-arrow {
-      width: 22px;
-      height: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: rotate(45deg);
-      transition: transform .4s cubic-bezier(.25, 1, .5, 1)
-    }
-
-    .widget-btn:hover .btn-arrow {
-      transform: rotate(90deg)
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255, 255, 255, .6);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: bounce 2s infinite
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: rgba(255, 255, 255, .4)
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateX(-50%) translateY(0)
-      }
-
-      50% {
-        transform: translateX(-50%) translateY(6px)
-      }
-    }
-
-    section {
-      padding: 100px 60px
-    }
-
-    .section-tag {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 58px);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--navy)
-    }
-
-    .section-title em {
-      font-style: italic
-    }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin: 24px 0
-    }
-
-    .section-body {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--text-mid);
-      max-width: 520px
-    }
-
-    #about {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      padding: 120px 80px
-    }
-
-    .about-images {
-      position: relative;
-      height: 560px
-    }
-
-    .about-img-main {
-      width: 80%;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 2px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      box-shadow: 20px 20px 60px rgba(0, 0, 0, .12)
-    }
-
-    .about-img-accent {
-      width: 55%;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 2px;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      border: 6px solid var(--white);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, .15)
-    }
-
-    .about-badge {
-      position: absolute;
-      top: 50%;
-      left: 65%;
-      transform: translate(-50%, -50%);
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: var(--gold);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-      box-shadow: 0 8px 30px rgba(201, 165, 90, .4)
-    }
-
-    .about-badge strong {
-      font-size: 26px;
-      font-weight: 600;
-      color: var(--navy)
-    }
-
-    .about-badge span {
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--navy)
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 40px
-    }
-
-    .stat-box {
-      padding: 20px 24px;
-      background: var(--cream);
-      border-left: 3px solid var(--gold);
-      border-radius: 2px
-    }
-
-    .stat-box strong {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      color: var(--navy);
-      display: block
-    }
-
-    .stat-box span {
-      font-size: 12px;
-      letter-spacing: 1px;
-      color: var(--text-mid)
-    }
-
-    #rooms {
-      background: var(--cream)
-    }
-
-    .rooms-header {
-      text-align: center;
-      margin-bottom: 60px
-    }
-
-    .rooms-header .divider {
-      margin: 24px auto
-    }
-
-    .rooms-header .section-body {
-      margin: 0 auto;
-      text-align: center
-    }
-
-    .rooms-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px
-    }
-
-    .room-card {
-      background: var(--white);
-      border-radius: 3px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
-      transition: transform .3s, box-shadow .3s;
-      cursor: pointer
-    }
-
-    .room-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .12)
-    }
-
-    .room-img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      transition: transform .5s
-    }
-
-    .room-card:hover .room-img {
-      transform: scale(1.04)
-    }
-
-    .room-img-wrap {
-      overflow: hidden;
-      position: relative
-    }
-
-    .room-tag {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 2px
-    }
-
-    .room-info {
-      padding: 28px
-    }
-
-    .room-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--navy);
-      margin-bottom: 10px
-    }
-
-    .room-desc {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text-mid);
-      margin-bottom: 20px
-    }
-
-    .room-feats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px
-    }
-
-    .feat-tag {
-      font-size: 11px;
-      padding: 4px 12px;
-      background: var(--cream);
-      color: var(--text-mid);
-      border-radius: 20px;
-      letter-spacing: .5px
-    }
-
-    .room-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between
-    }
-
-    .room-price {
-      font-family: 'Cormorant Garamond', serif
-    }
-
-    .room-price .from {
-      font-size: 11px;
-      color: var(--text-mid);
-      display: block
-    }
-
-    .room-price strong {
-      font-size: 28px;
-      color: var(--navy)
-    }
-
-    .room-price .night {
-      font-size: 13px;
-      color: var(--text-mid)
-    }
-
-    .btn-book {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      z-index: 10;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 11px 22px;
-      white-space: nowrap;
-      font-family: 'Jost', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--navy);
-      background: white;
-      border: 2px solid var(--gold);
-      border-radius: 9999px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
-      cursor: pointer;
-      transition: color .3s ease
-    }
-
-    .btn-book::before {
-      content: "";
-      position: absolute;
-      left: -100%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      background: var(--navy);
-      z-index: -1;
-      transition: left .7s cubic-bezier(.55, 0, .1, 1), scale .7s cubic-bezier(.55, 0, .1, 1)
-    }
-
-    .btn-book:hover {
-      color: var(--gold);
-      border-color: var(--navy)
-    }
-
-    .btn-book:hover::before {
-      left: 0;
-      scale: 1.5
-    }
-
-    .btn-book .btn-arrow {
-      width: 26px;
-      height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1.5px solid var(--navy);
-      padding: 6px;
-      transform: rotate(45deg);
-      transition: transform .3s ease, border-color .3s ease;
-      flex-shrink: 0
-    }
-
-    .btn-book:hover .btn-arrow {
-      transform: rotate(90deg);
-      border-color: transparent
-    }
-
-    .btn-book .btn-arrow svg path {
-      fill: var(--navy);
-      transition: fill .3s ease
-    }
-
-    .btn-book:hover .btn-arrow svg path {
-      fill: var(--gold)
-    }
-
-    #amenities {
-      background: var(--navy);
-      color: white;
-      text-align: center
-    }
-
-    #amenities .section-title {
-      color: white
-    }
-
-    #amenities .divider {
-      margin: 24px auto;
-      background: var(--gold)
-    }
-
-    .amenities-lead {
-      color: rgba(255, 255, 255, .55);
-      font-size: 15px;
-      line-height: 1.8;
-      max-width: 480px;
-      margin: 0 auto 64px
-    }
-
-    .amenities-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 6px;
-      overflow: hidden
-    }
-
-    .amenity-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      padding: 32px 28px;
-      background: rgba(255, 255, 255, .02);
-      text-align: left;
-      position: relative;
-      transition: background .35s ease
-    }
-
-    .amenity-item::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--gold);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform .35s cubic-bezier(.25, .46, .45, .94)
-    }
-
-    .amenity-item:hover {
-      background: rgba(201, 165, 90, .06)
-    }
-
-    .amenity-item:hover::after {
-      transform: scaleY(1)
-    }
-
-    .amenity-icon-wrap {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(201, 165, 90, .12);
-      border: 1px solid rgba(201, 165, 90, .2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-      transition: background .35s ease, border-color .35s ease
-    }
-
-    .amenity-item:hover .amenity-icon-wrap {
-      background: rgba(201, 165, 90, .22);
-      border-color: var(--gold)
-    }
-
-    .amenity-icon-wrap svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 1.6;
-      stroke-linecap: round;
-      stroke-linejoin: round
-    }
-
-    .amenity-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, .9);
-      letter-spacing: .3px;
-      margin-bottom: 4px
-    }
-
-    .amenity-sub {
-      font-size: 12px;
-      color: rgba(255, 255, 255, .38);
-      line-height: 1.5
-    }
-
-    #gallery {
-      padding: 100px 80px;
-      background: var(--white);
-      overflow: hidden
-    }
-
-    .gallery-header {
-      margin-bottom: 56px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between
-    }
-
-    .gallery-count {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      padding-bottom: 6px
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      border-radius: 4px;
-      background: var(--sand)
-    }
-
-    .gallery-item:nth-child(1) {
-      grid-column: 1/8;
-      grid-row: 1/3
-    }
-
-    .gallery-item:nth-child(2) {
-      grid-column: 8/13;
-      grid-row: 1/2
-    }
-
-    .gallery-item:nth-child(3) {
-      grid-column: 8/13;
-      grid-row: 2/3
-    }
-
-    .gallery-item:nth-child(4) {
-      grid-column: 1/5;
-      grid-row: 3/4
-    }
-
-    .gallery-item:nth-child(5) {
-      grid-column: 5/9;
-      grid-row: 3/4
-    }
-
-    .gallery-item:nth-child(6) {
-      grid-column: 9/13;
-      grid-row: 3/4
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      min-height: 240px;
-      object-fit: cover;
-      display: block;
-      transition: transform .6s cubic-bezier(.25, .46, .45, .94), filter .4s ease;
-      filter: brightness(.92)
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.06);
-      filter: brightness(1)
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(13, 27, 42, .75) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity .4s ease;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px 22px
-    }
-
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1
-    }
-
-    .gallery-caption {
-      color: white;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 500;
-      transform: translateY(6px);
-      transition: transform .4s ease
-    }
-
-    .gallery-item:hover .gallery-caption {
-      transform: translateY(0)
-    }
-
-    .gallery-icon {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, .6);
-      background: rgba(13, 27, 42, .4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transform: scale(.7);
-      transition: opacity .3s ease, transform .3s ease
-    }
-
-    .gallery-icon svg {
-      width: 14px;
-      height: 14px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round
-    }
-
-    .gallery-item:hover .gallery-icon {
-      opacity: 1;
-      transform: scale(1)
-    }
-
-    #gallery-lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: rgba(5, 10, 18, .96);
-      backdrop-filter: blur(16px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 40px
-    }
-
-    #gallery-lightbox.open {
-      display: flex
-    }
-
-    .lb-img-wrap {
-      position: relative;
-      max-width: 1100px;
-      width: 100%;
-      max-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    #lb-img {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: 3px;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, .6);
-      transition: opacity .25s ease
-    }
-
-    #lb-img.fading {
-      opacity: 0
-    }
-
-    .lb-caption {
-      position: absolute;
-      bottom: -36px;
-      left: 0;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .45)
-    }
-
-    .lb-counter {
-      position: absolute;
-      bottom: -36px;
-      right: 0;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--gold)
-    }
-
-    .lb-close {
-      position: fixed;
-      top: 24px;
-      right: 32px;
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, .7);
-      font-size: 28px;
-      cursor: pointer;
-      transition: color .2s;
-      z-index: 10;
-      line-height: 1
-    }
-
-    .lb-close:hover {
-      color: var(--gold)
-    }
-
-    .lb-nav {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background .3s, border-color .3s, color .3s;
-      font-size: 18px;
-      z-index: 10
-    }
-
-    .lb-nav:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy)
-    }
-
-    #lb-prev {
-      left: 24px
-    }
-
-    #lb-next {
-      right: 24px
-    }
-
-    #experience {
-      background: var(--cream);
-      padding: 100px 24px;
-      text-align: center
-    }
-
-    .exp-content {
-      max-width: 1000px;
-      margin: 0 auto
-    }
-
-    .exp-content .section-title {
-      max-width: 600px;
-      margin: 0 auto
-    }
-
-    .exp-lead {
-      font-size: 18px;
-      color: var(--text-dark);
-      max-width: 600px;
-      margin: 24px auto 60px;
-      line-height: 1.7
-    }
-
-    .exp-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      text-align: left
-    }
-
-    .exp-item {
-      background: white;
-      padding: 40px 32px;
-      border-radius: 6px;
-      border-top: 2px solid var(--gold);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, .03);
-      transition: transform .3s ease, box-shadow .3s ease
-    }
-
-    .exp-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .08)
-    }
-
-    .exp-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(201, 165, 90, .1);
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px
-    }
-
-    .exp-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke-width: 1.5
-    }
-
-    .exp-item-title {
-      font-weight: 600;
-      font-size: 16px;
-      color: var(--navy);
-      margin-bottom: 8px
-    }
-
-    .exp-item-desc {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.6
-    }
-
-    #reviews {
-      background: var(--cream);
-      text-align: center
-    }
-
-    .reviews-header {
-      margin-bottom: 72px
-    }
-
-    .reviews-score-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
-      flex-wrap: wrap
-    }
-
-    .score-main {
-      display: flex;
-      align-items: baseline;
-      gap: 6px
-    }
-
-    .score-main .score-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 80px;
-      font-weight: 300;
-      color: var(--navy);
-      line-height: 1
-    }
-
-    .score-main .score-max {
-      font-size: 22px;
-      color: var(--text-mid);
-      font-weight: 300
-    }
-
-    .score-divider {
-      width: 1px;
-      height: 60px;
-      background: var(--sand)
-    }
-
-    .score-details {
-      text-align: left
-    }
-
-    .score-label {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      margin-bottom: 6px
-    }
-
-    .score-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 8px
-    }
-
-    .score-stars svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--gold)
-    }
-
-    .score-platform {
-      font-size: 12px;
-      color: var(--text-mid)
-    }
-
-    .score-platform strong {
-      color: var(--navy)
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: left
-    }
-
-    .review-card {
-      background: white;
-      border-radius: 6px;
-      padding: 40px 36px 32px;
-      position: relative;
-      border-top: 3px solid transparent;
-      transition: border-color .35s ease, box-shadow .35s ease, transform .35s ease;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, .05)
-    }
-
-    .review-card:hover {
-      border-top-color: var(--gold);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .1);
-      transform: translateY(-4px)
-    }
-
-    .review-quote {
-      position: absolute;
-      top: 28px;
-      right: 32px;
-      opacity: .08
-    }
-
-    .review-quote svg {
-      width: 48px;
-      height: 48px;
-      fill: var(--navy)
-    }
-
-    .review-card-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 20px
-    }
-
-    .review-card-stars svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--gold)
-    }
-
-    .review-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--text-dark);
-      margin-bottom: 28px
-    }
-
-    .review-divider {
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-      margin-bottom: 20px;
-      transition: width .4s ease
-    }
-
-    .review-card:hover .review-divider {
-      width: 56px
-    }
-
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 14px
-    }
-
-    .review-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      color: var(--gold);
-      font-size: 16px;
-      flex-shrink: 0
-    }
-
-    .review-name {
-      font-weight: 600;
-      font-size: 13px;
-      color: var(--navy);
-      letter-spacing: .3px
-    }
-
-    .review-country {
-      font-size: 12px;
-      color: var(--text-mid);
-      margin-top: 2px
-    }
-
-    #location {
-      background: var(--cream);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      padding: 0
-    }
-
-    .location-content {
-      padding: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
-    }
-
-    .location-list {
-      margin-top: 36px;
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px
-    }
-
-    .location-list li {
-      font-size: 14px;
-      color: var(--text-mid);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      background: var(--white);
-      border-radius: 3px;
-      border-left: 3px solid var(--gold)
-    }
-
-    .location-list li span.dist {
-      margin-left: auto;
-      font-weight: 600;
-      color: var(--navy);
-      font-size: 13px
-    }
-
-    .map-wrap {
-      position: relative;
-      overflow: hidden;
-      min-height: 500px
-    }
-
-    .map-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: saturate(.7) contrast(1.1)
-    }
-
-    #book {
-      background: linear-gradient(135deg, var(--ocean) 0%, var(--navy) 100%);
-      color: white;
-      text-align: center;
-      padding: 100px 60px;
-      position: relative;
-      overflow: hidden
-    }
-
-    #book::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
-    }
-
-    #book .section-title {
-      color: white
-    }
-
-    #book .divider {
-      margin: 24px auto
-    }
-
-    #book>p {
-      color: rgba(255, 255, 255, .7);
-      font-size: 16px;
-      max-width: 500px;
-      margin: 0 auto 50px
-    }
-
-    .booking-form {
-      background: white;
-      color: var(--text-dark);
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 4px;
-      padding: 50px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
-      text-align: left
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px
-    }
-
-    .form-group.full {
-      grid-column: 1/-1
-    }
-
-    .form-group label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold)
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      border: 1.5px solid #e2e8f0;
-      border-radius: 3px;
-      padding: 13px 16px;
-      font-family: 'Jost', sans-serif;
-      font-size: 15px;
-      color: var(--text-dark);
-      outline: none;
-      transition: border-color .3s;
-      background: var(--white)
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold)
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px
-    }
-
-    .form-submit {
-      margin-top: 32px;
-      width: 100%;
-      background: var(--navy);
-      color: white;
-      border: none;
-      cursor: pointer;
-      padding: 18px;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border-radius: 3px;
-      transition: background .3s, transform .2s
-    }
-
-    .form-submit:hover:not(:disabled) {
-      background: var(--gold);
-      color: var(--navy);
-      transform: translateY(-2px)
-    }
-
-    .form-submit:disabled {
-      opacity: .6;
-      cursor: not-allowed
-    }
-
-    .form-note {
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-mid);
-      margin-top: 16px
-    }
-
-    .price-estimate {
-      text-align: center;
-      padding: 12px;
-      background: var(--cream);
-      border-radius: 3px;
-      margin-top: 12px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: var(--navy);
-      display: none
-    }
-
-    .price-estimate strong {
-      color: var(--gold)
-    }
-
-    .success-msg {
-      display: none;
-      text-align: center;
-      padding: 40px 20px
-    }
-
-    .success-msg .check {
-      font-size: 60px;
-      margin-bottom: 16px
-    }
-
-    .success-msg h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      color: var(--navy)
-    }
-
-    .success-msg p {
-      color: var(--text-mid);
-      margin-top: 8px
-    }
-
-    footer {
-      background: var(--navy);
-      color: rgba(255, 255, 255, .6);
-      padding: 70px 80px 36px
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 60px
-    }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      color: white;
-      margin-bottom: 16px;
-      display: block
-    }
-
-    .footer-logo span {
-      color: var(--gold)
-    }
-
-    .footer-brand p {
-      font-size: 13px;
-      line-height: 1.8;
-      max-width: 260px
-    }
-
-    .footer-col h4 {
-      color: white;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px
-    }
-
-    .footer-col ul li a {
-      color: rgba(255, 255, 255, .55);
-      text-decoration: none;
-      font-size: 13px;
-      transition: color .3s
-    }
-
-    .footer-col ul li a:hover {
-      color: var(--gold)
-    }
-
-    .footer-col p {
-      font-size: 13px;
-      line-height: 1.8
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, .08);
-      padding-top: 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center
-    }
-
-    .footer-bottom p {
-      font-size: 12px
-    }
-
-    .footer-bottom span {
-      color: var(--gold)
-    }
-
-    .social-links {
-      display: flex;
-      gap: 16px
-    }
-
-    .social-links a {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, .15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255, 255, 255, .5);
-      text-decoration: none;
-      font-size: 14px;
-      transition: all .3s
-    }
-
-    .social-links a:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy)
-    }
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, .7);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px
-    }
-
-    .modal-overlay.open {
-      display: flex
-    }
-
-    .modal {
-      background: white;
-      border-radius: 4px;
-      max-width: 650px;
-      width: 100%;
-      padding: 50px;
-      position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
-      animation: modalIn .3s ease
-    }
-
-    @keyframes modalIn {
-      from {
-        opacity: 0;
-        transform: scale(.95)
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1)
-      }
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: var(--text-mid);
-      transition: color .3s
-    }
-
-    .modal-close:hover {
-      color: var(--navy)
-    }
-
-    .modal-room-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      color: var(--navy);
-      margin-bottom: 6px
-    }
-
-    .modal-price {
-      color: var(--gold);
-      font-size: 18px;
-      margin-bottom: 28px
-    }
-
-    .modal-price-calc {
-      background: var(--cream);
-      border-radius: 3px;
-      padding: 12px 16px;
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: var(--text-mid);
-      display: none
-    }
-
-    .modal-price-calc strong {
-      color: var(--navy);
-      font-size: 18px;
-      font-family: 'Cormorant Garamond', serif
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: var(--navy);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: .5px;
-      z-index: 9999;
-      opacity: 0;
-      transition: all .4s cubic-bezier(.25, 1, .5, 1);
-      pointer-events: none;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0)
-    }
-
-    .toast.error {
-      background: #c0392b
-    }
-
-    .toast.success {
-      background: #1a6b3a
-    }
-
-    .stripe-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 16px;
-      font-size: 12px;
-      color: var(--text-mid)
-    }
-
-    .stripe-badge svg {
-      height: 20px
-    }
+      --navy: #0d1b2a; --ocean: #1a3a52; --gold: #c9a55a; --gold-light: #e8c97a;
+      --cream: #f7f4ef; --sand: #e8dece; --white: #ffffff; --text-dark: #1a1a2e;
+      --text-mid: #4a5568; --teal: #2a7f8a
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box }
+    html { scroll-behavior: smooth }
+    body { font-family: 'Jost', sans-serif; color: var(--text-dark); background: var(--cream); overflow-x: hidden }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; transition: all .4s ease }
+    nav.scrolled { background: rgba(13, 27, 42, .97); backdrop-filter: blur(12px); padding: 14px 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, .3) }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--white); letter-spacing: 1px; text-decoration: none }
+    .nav-logo span { color: var(--gold) }
+    .nav-controls { display: flex; align-items: center; gap: 24px; z-index: 101; }
+    .lang-dropdown { position: relative; }
+    .lang-dropdown-btn { background: none; border: none; color: white; font-size: 14px; cursor: pointer; opacity: 0.8; padding: 8px 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px; }
+    .lang-dropdown-btn svg { width: 20px; height: 20px; stroke: white; transition: stroke 0.3s ease; }
+    .lang-dropdown-btn:hover { opacity: 1; color: var(--gold); }
+    .lang-dropdown-btn:hover svg { stroke: var(--gold); }
+    .lang-dropdown-content { position: absolute; top: 100%; right: 0; background: rgba(13, 27, 42, 0.95); backdrop-filter: blur(12px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 6px; min-width: 130px; display: flex; flex-direction: column; gap: 2px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
+    .lang-dropdown:hover .lang-dropdown-content { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-btn { background: none; border: none; color: white; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; padding: 10px 16px; border-radius: 6px; text-align: left; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; }
+    .lang-btn:hover { background: rgba(255, 255, 255, 0.1); color: var(--gold); }
+    .lang-btn[data-active="true"] { color: var(--gold); background: rgba(201, 165, 90, 0.1); }
+    
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 28px; height: 2px; background: white; display: block; transition: all 0.3s ease; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--gold); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--gold); }
+    .hamburger:hover span { background: var(--gold); }
+
+    .nav-cta { display: inline-block; position: relative; overflow: hidden; color: var(--navy) !important; padding: 10px 24px !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; background: var(--gold) !important; border: 1px solid var(--gold) !important; box-shadow: 4px 4px 10px rgba(0, 0, 0, .25); cursor: pointer; transition: color .2s ease-in, border-color .2s ease-in; text-decoration: none; }
+    .nav-cta:hover { color: var(--gold) !important; border-color: var(--navy) !important; }
+
+    .full-screen-menu { position: fixed; inset: 0; background: rgba(13, 27, 42, 0.95); backdrop-filter: blur(12px); z-index: 90; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s; }
+    .full-screen-menu.open { opacity: 1; visibility: visible; }
+    .full-screen-menu ul { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 40px; }
+    .full-screen-menu a { color: white; text-decoration: none; font-size: 48px; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 2px; transition: color 0.3s, transform 0.3s; display: inline-block; }
+    .full-screen-menu a:hover { color: var(--gold); transform: translateY(-4px); }
+
+    #hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13, 27, 42, .55) 0%, rgba(13, 27, 42, .3) 40%, rgba(13, 27, 42, .65) 100%), url('343548430.jpg') center/cover no-repeat; transform: scale(1.05); animation: zoomOut 8s ease forwards }
+    @keyframes zoomOut { from { transform: scale(1.08) } to { transform: scale(1) } }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(42, 127, 138, .15) 0%, transparent 60%) }
+    .hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 0 20px; animation: fadeUp 1.2s ease .3s both }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px) } to { opacity: 1; transform: translateY(0) } }
+    .hero-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; justify-content: center; gap: 12px }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--gold); display: block }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 90px); font-weight: 300; line-height: 1.05; margin-bottom: 20px; text-shadow: 0 2px 40px rgba(0, 0, 0, .3) }
+    .hero-title em { font-style: italic; color: var(--gold-light) }
+    .hero-subtitle { font-size: 16px; font-weight: 300; letter-spacing: 2px; color: rgba(255, 255, 255, .8); margin-bottom: 50px }
+
+    .booking-widget { background: rgba(255, 255, 255, .95); backdrop-filter: blur(16px); border-radius: 60px; padding: 10px 10px 10px 36px; display: flex; gap: 12px; align-items: center; max-width: 880px; margin: 0 auto; box-shadow: 0 16px 40px rgba(0, 0, 0, .08); border: 1px solid rgba(255, 255, 255, .4) }
+    .widget-field { flex: 1; padding: 8px 16px; border-right: 1px solid rgba(0, 0, 0, .08); min-width: 0; border-radius: 12px; transition: background-color .2s ease }
+    .widget-field:hover { background-color: rgba(0, 0, 0, .03) }
+    .widget-field:last-of-type { border-right: none }
+    .widget-field label { display: block; font-size: 10px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase; color: var(--text-mid); margin-bottom: 2px; pointer-events: none }
+    .widget-field input, .widget-field select { width: 100%; border: none; outline: none; font-family: 'Jost', sans-serif; font-size: 15px; color: var(--navy); background: transparent; cursor: pointer; font-weight: 600; -webkit-appearance: none; appearance: none; padding: 2px 0; text-overflow: ellipsis; white-space: nowrap }
+    .widget-btn { display: inline-flex; justify-content: center; align-items: center; gap: 12px; z-index: 10; margin-left: auto; padding: 16px 36px; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--white); background: var(--navy); border: none; border-radius: 50px; box-shadow: 0 8px 24px rgba(13, 27, 42, .25); cursor: pointer; transition: all .3s cubic-bezier(.25, 1, .5, 1); flex-shrink: 0 }
+    .widget-btn:hover { background: var(--gold); box-shadow: 0 10px 28px rgba(201, 165, 90, .4); transform: translateY(-2px) }
+    .widget-btn .btn-arrow { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; transform: rotate(45deg); transition: transform .4s cubic-bezier(.25, 1, .5, 1) }
+    .widget-btn:hover .btn-arrow { transform: rotate(90deg) }
+    .widget-btn .btn-arrow svg path { fill: var(--navy); transition: fill .3s ease }
+    .widget-btn:hover .btn-arrow svg path { fill: var(--gold) }
+
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255, 255, 255, .6); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; animation: bounce 2s infinite }
+    .scroll-line { width: 1px; height: 40px; background: rgba(255, 255, 255, .4) }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0) } 50% { transform: translateX(-50%) translateY(6px) } }
+
+    section { padding: 100px 60px }
+    .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 300; line-height: 1.1; color: var(--navy) }
+    .section-title em { font-style: italic }
+    .divider { width: 60px; height: 2px; background: var(--gold); margin: 24px 0 }
+    .section-body { font-size: 16px; line-height: 1.8; color: var(--text-mid); max-width: 520px }
+
+    #about { background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 120px 80px }
+    .about-images { position: relative; height: 560px }
+    .about-img-main { width: 80%; height: 420px; object-fit: cover; border-radius: 2px; position: absolute; top: 0; left: 0; box-shadow: 20px 20px 60px rgba(0, 0, 0, .12) }
+    .about-img-accent { width: 55%; height: 240px; object-fit: cover; border-radius: 2px; position: absolute; bottom: 0; right: 0; border: 6px solid var(--white); box-shadow: 0 10px 40px rgba(0, 0, 0, .15) }
+    .about-badge { position: absolute; top: 50%; left: 65%; transform: translate(-50%, -50%); width: 90px; height: 90px; border-radius: 50%; background: var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 8px 30px rgba(201, 165, 90, .4) }
+    .about-badge strong { font-size: 26px; font-weight: 600; color: var(--navy) }
+    .about-badge span { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--navy) }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px }
+    .stat-box { padding: 20px 24px; background: var(--cream); border-left: 3px solid var(--gold); border-radius: 2px }
+    .stat-box strong { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--navy); display: block }
+    .stat-box span { font-size: 12px; letter-spacing: 1px; color: var(--text-mid) }
+
+    #rooms { background: var(--cream) }
+    .rooms-header { text-align: center; margin-bottom: 60px }
+    .rooms-header .divider { margin: 24px auto }
+    .rooms-header .section-body { margin: 0 auto; text-align: center }
+    .rooms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px }
+    .room-card { background: var(--white); border-radius: 3px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, .06); transition: transform .3s, box-shadow .3s; cursor: pointer }
+    .room-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0, 0, 0, .12) }
+    .room-img { width: 100%; height: 240px; object-fit: cover; transition: transform .5s }
+    .room-card:hover .room-img { transform: scale(1.04) }
+    .room-img-wrap { overflow: hidden; position: relative }
+    .room-tag { position: absolute; top: 16px; left: 16px; background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 2px }
+    .room-info { padding: 28px }
+    .room-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--navy); margin-bottom: 10px }
+    .room-desc { font-size: 14px; line-height: 1.7; color: var(--text-mid); margin-bottom: 20px }
+    .room-feats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px }
+    .feat-tag { font-size: 11px; padding: 4px 12px; background: var(--cream); color: var(--text-mid); border-radius: 20px; letter-spacing: .5px }
+    .room-footer { display: flex; align-items: center; justify-content: space-between }
+    .room-price { font-family: 'Cormorant Garamond', serif }
+    .room-price .from { font-size: 11px; color: var(--text-mid); display: block }
+    .room-price strong { font-size: 28px; color: var(--navy) }
+    .room-price .night { font-size: 13px; color: var(--text-mid) }
+    .btn-book { display: inline-flex; justify-content: center; align-items: center; gap: 8px; position: relative; z-index: 10; isolation: isolate; overflow: hidden; padding: 11px 22px; white-space: nowrap; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); background: white; border: 2px solid var(--gold); border-radius: 9999px; box-shadow: 0 4px 16px rgba(0, 0, 0, .1); cursor: pointer; transition: color .3s ease }
+    .btn-book::before { content: ""; position: absolute; left: -100%; top: 50%; transform: translateY(-50%); width: 100%; aspect-ratio: 1/1; border-radius: 50%; background: var(--navy); z-index: -1; transition: left .7s cubic-bezier(.55, 0, .1, 1), scale .7s cubic-bezier(.55, 0, .1, 1) }
+    .btn-book:hover { color: var(--gold); border-color: var(--navy) }
+    .btn-book:hover::before { left: 0; scale: 1.5 }
+    .btn-book .btn-arrow { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1.5px solid var(--navy); padding: 6px; transform: rotate(45deg); transition: transform .3s ease, border-color .3s ease; flex-shrink: 0 }
+    .btn-book:hover .btn-arrow { transform: rotate(90deg); border-color: transparent }
+    .btn-book .btn-arrow svg path { fill: var(--navy); transition: fill .3s ease }
+    .btn-book:hover .btn-arrow svg path { fill: var(--gold) }
+
+    #amenities { background: var(--navy); color: white; text-align: center }
+    #amenities .section-title { color: white }
+    #amenities .divider { margin: 24px auto; background: var(--gold) }
+    .amenities-lead { color: rgba(255, 255, 255, .55); font-size: 15px; line-height: 1.8; max-width: 480px; margin: 0 auto 64px }
+    .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .06); border-radius: 6px; overflow: hidden }
+    .amenity-item { display: flex; align-items: flex-start; gap: 18px; padding: 32px 28px; background: rgba(255, 255, 255, .02); text-align: left; position: relative; transition: background .35s ease }
+    .amenity-item::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold); transform: scaleY(0); transform-origin: bottom; transition: transform .35s cubic-bezier(.25, .46, .45, .94) }
+    .amenity-item:hover { background: rgba(201, 165, 90, .06) }
+    .amenity-item:hover::after { transform: scaleY(1) }
+    .amenity-icon-wrap { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: rgba(201, 165, 90, .12); border: 1px solid rgba(201, 165, 90, .2); display: flex; align-items: center; justify-content: center; margin-top: 2px; transition: background .35s ease, border-color .35s ease }
+    .amenity-item:hover .amenity-icon-wrap { background: rgba(201, 165, 90, .22); border-color: var(--gold) }
+    .amenity-icon-wrap svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
+    .amenity-name { font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, .9); letter-spacing: .3px; margin-bottom: 4px }
+    .amenity-sub { font-size: 12px; color: rgba(255, 255, 255, .38); line-height: 1.5 }
+
+    #gallery { padding: 100px 80px; background: var(--white); overflow: hidden }
+    .gallery-header { margin-bottom: 56px; display: flex; align-items: flex-end; justify-content: space-between }
+    .gallery-count { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-mid); padding-bottom: 6px }
+    .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px }
+    .gallery-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 4px; background: var(--sand) }
+    .gallery-item:nth-child(1) { grid-column: 1/8; grid-row: 1/3 }
+    .gallery-item:nth-child(2) { grid-column: 8/13; grid-row: 1/2 }
+    .gallery-item:nth-child(3) { grid-column: 8/13; grid-row: 2/3 }
+    .gallery-item:nth-child(4) { grid-column: 1/5; grid-row: 3/4 }
+    .gallery-item:nth-child(5) { grid-column: 5/9; grid-row: 3/4 }
+    .gallery-item:nth-child(6) { grid-column: 9/13; grid-row: 3/4 }
+    .gallery-item img { width: 100%; height: 100%; min-height: 240px; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.25, .46, .45, .94), filter .4s ease; filter: brightness(.92) }
+    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1) }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13, 27, 42, .75) 0%, transparent 55%); opacity: 0; transition: opacity .4s ease; display: flex; align-items: flex-end; padding: 20px 22px }
+    .gallery-item:hover .gallery-overlay { opacity: 1 }
+    .gallery-caption { color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; transform: translateY(6px); transition: transform .4s ease }
+    .gallery-item:hover .gallery-caption { transform: translateY(0) }
+    .gallery-icon { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .6); background: rgba(13, 27, 42, .4); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(.7); transition: opacity .3s ease, transform .3s ease }
+    .gallery-icon svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round }
+    .gallery-item:hover .gallery-icon { opacity: 1; transform: scale(1) }
+
+    #gallery-lightbox { position: fixed; inset: 0; z-index: 2000; background: rgba(5, 10, 18, .96); backdrop-filter: blur(16px); display: none; align-items: center; justify-content: center; padding: 40px }
+    #gallery-lightbox.open { display: flex }
+    .lb-img-wrap { position: relative; max-width: 1100px; width: 100%; max-height: 85vh; display: flex; align-items: center; justify-content: center }
+    #lb-img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 3px; box-shadow: 0 40px 80px rgba(0, 0, 0, .6); transition: opacity .25s ease }
+    #lb-img.fading { opacity: 0 }
+    .lb-caption { position: absolute; bottom: -36px; left: 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255, 255, 255, .45) }
+    .lb-counter { position: absolute; bottom: -36px; right: 0; font-size: 11px; letter-spacing: 2px; color: var(--gold) }
+    .lb-close { position: fixed; top: 24px; right: 32px; background: none; border: none; color: rgba(255, 255, 255, .7); font-size: 28px; cursor: pointer; transition: color .2s; z-index: 10; line-height: 1 }
+    .lb-close:hover { color: var(--gold) }
+    .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .12); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .3s, border-color .3s, color .3s; font-size: 18px; z-index: 10 }
+    .lb-nav:hover { background: var(--gold); border-color: var(--gold); color: var(--navy) }
+    #lb-prev { left: 24px } #lb-next { right: 24px }
+
+    #experience { background: var(--cream); padding: 100px 24px; text-align: center }
+    .exp-content { max-width: 1000px; margin: 0 auto }
+    .exp-content .section-title { max-width: 600px; margin: 0 auto }
+    .exp-lead { font-size: 18px; color: var(--text-dark); max-width: 600px; margin: 24px auto 60px; line-height: 1.7 }
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: left }
+    .exp-item { background: white; padding: 40px 32px; border-radius: 6px; border-top: 2px solid var(--gold); box-shadow: 0 4px 16px rgba(0, 0, 0, .03); transition: transform .3s ease, box-shadow .3s ease }
+    .exp-item:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 0, 0, .08) }
+    .exp-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(201, 165, 90, .1); color: var(--gold); display: flex; align-items: center; justify-content: center; margin-bottom: 24px }
+    .exp-icon svg { width: 24px; height: 24px; stroke-width: 1.5 }
+    .exp-item-title { font-weight: 600; font-size: 16px; color: var(--navy); margin-bottom: 8px }
+    .exp-item-desc { font-size: 14px; color: var(--text-mid); line-height: 1.6 }
+
+    #reviews { background: var(--cream); text-align: center }
+    .reviews-header { margin-bottom: 72px }
+    .reviews-score-bar { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap }
+    .score-main { display: flex; align-items: baseline; gap: 6px }
+    .score-main .score-num { font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 300; color: var(--navy); line-height: 1 }
+    .score-main .score-max { font-size: 22px; color: var(--text-mid); font-weight: 300 }
+    .score-divider { width: 1px; height: 60px; background: var(--sand) }
+    .score-details { text-align: left }
+    .score-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-mid); margin-bottom: 6px }
+    .score-stars { display: flex; gap: 3px; margin-bottom: 8px }
+    .score-stars svg { width: 16px; height: 16px; fill: var(--gold) }
+    .score-platform { font-size: 12px; color: var(--text-mid) }
+    .score-platform strong { color: var(--navy) }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: left }
+    .review-card { background: white; border-radius: 6px; padding: 40px 36px 32px; position: relative; border-top: 3px solid transparent; transition: border-color .35s ease, box-shadow .35s ease, transform .35s ease; box-shadow: 0 2px 16px rgba(0, 0, 0, .05) }
+    .review-card:hover { border-top-color: var(--gold); box-shadow: 0 12px 40px rgba(0, 0, 0, .1); transform: translateY(-4px) }
+    .review-quote { position: absolute; top: 28px; right: 32px; opacity: .08 }
+    .review-quote svg { width: 48px; height: 48px; fill: var(--navy) }
+    .review-card-stars { display: flex; gap: 3px; margin-bottom: 20px }
+    .review-card-stars svg { width: 14px; height: 14px; fill: var(--gold) }
+    .review-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; line-height: 1.7; color: var(--text-dark); margin-bottom: 28px }
+    .review-divider { width: 32px; height: 1px; background: var(--gold); margin-bottom: 20px; transition: width .4s ease }
+    .review-card:hover .review-divider { width: 56px }
+    .review-author { display: flex; align-items: center; gap: 14px }
+    .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--gold); font-size: 16px; flex-shrink: 0 }
+    .review-name { font-weight: 600; font-size: 13px; color: var(--navy); letter-spacing: .3px }
+    .review-country { font-size: 12px; color: var(--text-mid); margin-top: 2px }
+
+    #location { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0 }
+    .location-content { padding: 80px; display: flex; flex-direction: column; justify-content: center }
+    .location-list { margin-top: 36px; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px }
+    .location-list li { font-size: 14px; color: var(--text-mid); display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--white); border-radius: 3px; border-left: 3px solid var(--gold) }
+    .location-list li span.dist { margin-left: auto; font-weight: 600; color: var(--navy); font-size: 13px }
+    .map-wrap { position: relative; overflow: hidden; min-height: 500px }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; filter: saturate(.7) contrast(1.1) }
+
+    footer { background: var(--navy); color: rgba(255, 255, 255, .6); padding: 70px 80px 36px }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: white; margin-bottom: 16px; display: block }
+    .footer-logo span { color: var(--gold) }
+    .footer-brand p { font-size: 13px; line-height: 1.8; max-width: 260px }
+    .footer-col h4 { color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px }
+    .footer-col ul li a { color: rgba(255, 255, 255, .55); text-decoration: none; font-size: 13px; transition: color .3s }
+    .footer-col ul li a:hover { color: var(--gold) }
+    .footer-col p { font-size: 13px; line-height: 1.8 }
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, .08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center }
+    .footer-bottom p { font-size: 12px }
+    .footer-bottom span { color: var(--gold) }
+    .social-links { display: flex; gap: 16px }
+    .social-links a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .15); display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, .5); text-decoration: none; font-size: 14px; transition: all .3s }
+    .social-links a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy) }
+
+    /* ========================================= */
+    /* NEW "DIRECT CONTACT" MODAL (No Stripe)    */
+    /* ========================================= */
+    .modal-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0, 0, 0, .8); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: white; border-radius: 8px; max-width: 500px; width: 100%; padding: 50px 40px; position: relative; text-align: center; animation: modalIn .3s ease; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+    @keyframes modalIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 26px; cursor: pointer; color: var(--text-mid); transition: color .3s; }
+    .modal-close:hover { color: var(--navy); }
+    .modal-room-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--navy); margin-bottom: 8px; }
+    .modal-pitch { font-size: 15px; color: var(--text-mid); line-height: 1.6; margin-bottom: 30px; }
+    
+    .contact-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 18px; margin-bottom: 12px; border-radius: 6px; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
+    .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); }
+    .btn-whatsapp:hover { background: #1ebc59; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(37, 211, 102, 0.35); }
+    .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; box-shadow: 0 8px 20px rgba(220, 39, 67, 0.25); }
+    .btn-instagram:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(220, 39, 67, 0.35); filter: brightness(1.1); }
+    .btn-email { background: var(--navy); color: white; box-shadow: 0 8px 20px rgba(13, 27, 42, 0.25); }
+    .btn-email:hover { background: var(--ocean); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(13, 27, 42, 0.35); }
+    .contact-btn svg { width: 22px; height: 22px; fill: white; }
+
+    .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--navy); color: white; padding: 14px 28px; border-radius: 50px; font-size: 14px; font-weight: 500; letter-spacing: .5px; z-index: 9999; opacity: 0; transition: all .4s cubic-bezier(.25, 1, .5, 1); pointer-events: none; box-shadow: 0 8px 32px rgba(0, 0, 0, .3); display: flex; align-items: center; gap: 10px; white-space: nowrap }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0) }
+    .toast.error { background: #c0392b }
+    .toast.success { background: #1a6b3a }
 
     /* WhatsApp Floating Button */
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 32px;
-      right: 32px;
-      background-color: #25d366;
-      color: #FFF;
-      border-radius: 50px;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-
-    .whatsapp-float svg {
-      width: 34px;
-      height: 34px;
-      fill: white;
-    }
+    .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 32px; right: 32px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); z-index: 100; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 34px; height: 34px; fill: white; }
 
     /* Calendar Section */
-    #availability {
-      background: var(--white);
-      background-image: radial-gradient(var(--cream) 1.5px, transparent 1.5px);
-      background-size: 24px 24px
-    }
-
-    .calendar-header {
-      margin-bottom: 48px
-    }
-
-    .calendar-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
-      flex-wrap: wrap
-    }
-
-    .cal-tab {
-      padding: 10px 20px;
-      font-family: 'Jost', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--navy);
-      background: var(--white);
-      border: 1.5px solid rgba(13, 27, 42, .15);
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all .3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .03)
-    }
-
-    .cal-tab.active {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-      box-shadow: 0 8px 20px rgba(13, 27, 42, .2)
-    }
-
-    .cal-tab:hover:not(.active) {
-      border-color: var(--gold);
-      color: var(--gold)
-    }
-
-    .calendar-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: 6px;
-      box-shadow: 0 16px 50px rgba(0, 0, 0, .06);
-      overflow: hidden;
-      padding: 32px
-    }
-
-    .cal-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px
-    }
-
-    .cal-nav button {
-      background: var(--cream);
-      border: 1px solid transparent;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--navy);
-      font-size: 18px;
-      transition: all .3s
-    }
-
-    .cal-nav button:hover {
-      background: var(--gold);
-      color: var(--white)
-    }
-
-    .cal-month-year {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 600;
-      color: var(--navy)
-    }
-
-    .cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 8px
-    }
-
-    .cal-day-label {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--text-mid);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding-bottom: 10px;
-      text-align: center
-    }
-
-    .cal-day {
-      aspect-ratio: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 4px;
-      transition: all .2s;
-      position: relative;
-      border: 1px solid transparent
-    }
-
-    .cal-day.empty {
-      background: transparent
-    }
-
-    .cal-day.past {
-      color: rgba(0, 0, 0, .2);
-      cursor: not-allowed;
-      background: rgba(0, 0, 0, .02)
-    }
-
-    .cal-day.booked {
-      background: #fff1f2;
-      color: #e11d48;
-      cursor: not-allowed;
-      text-decoration: line-through;
-      opacity: .7
-    }
-
-    .cal-day.available {
-      background: #f0fdf4;
-      color: #166534;
-      cursor: pointer;
-      border-color: #dcfce7
-    }
-
-    .cal-day.available:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(22, 101, 52, .12);
-      border-color: #166534
-    }
-
-    .cal-day.selected {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-      transform: translateY(-3px) scale(1.04);
-      z-index: 2;
-      box-shadow: 0 8px 24px rgba(13, 27, 42, .25)
-    }
-
-    .cal-day.in-range {
-      background: #e0f2fe;
-      color: #0369a1;
-      border-color: #bae6fd
-    }
-
-    .cal-legend {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 32px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-mid);
-      letter-spacing: 1.5px;
-      text-transform: uppercase
-    }
-
-    .cal-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .cal-legend-color {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%
-    }
-
-    .cal-legend-color.avail {
-      background: #f0fdf4;
-      border: 1.5px solid #dcfce7
-    }
-
-    .cal-legend-color.book {
-      background: #fff1f2;
-      border: 1.5px solid #ffe4e6
-    }
-
-    .cal-action {
-      margin-top: 40px;
-      text-align: center
-    }
+    #availability { background: var(--white); background-image: radial-gradient(var(--cream) 1.5px, transparent 1.5px); background-size: 24px 24px }
+    .calendar-header { margin-bottom: 48px }
+    .calendar-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap }
+    .cal-tab { padding: 10px 20px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); background: var(--white); border: 1.5px solid rgba(13, 27, 42, .15); border-radius: 50px; cursor: pointer; transition: all .3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, .03) }
+    .cal-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); box-shadow: 0 8px 20px rgba(13, 27, 42, .2) }
+    .cal-tab:hover:not(.active) { border-color: var(--gold); color: var(--gold) }
+    .calendar-container { max-width: 700px; margin: 0 auto; background: var(--white); border-radius: 6px; box-shadow: 0 16px 50px rgba(0, 0, 0, .06); overflow: hidden; padding: 32px }
+    .cal-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px }
+    .cal-nav button { background: var(--cream); border: 1px solid transparent; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); font-size: 18px; transition: all .3s }
+    .cal-nav button:hover { background: var(--gold); color: var(--white) }
+    .cal-month-year { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--navy) }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px }
+    .cal-day-label { font-size: 10px; font-weight: 600; color: var(--text-mid); text-transform: uppercase; letter-spacing: 2px; padding-bottom: 10px; text-align: center }
+    .cal-day { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; border-radius: 4px; transition: all .2s; position: relative; border: 1px solid transparent }
+    .cal-day.empty { background: transparent }
+    .cal-day.past { color: rgba(0, 0, 0, .2); cursor: not-allowed; background: rgba(0, 0, 0, .02) }
+    .cal-day.booked { background: #fff1f2; color: #e11d48; cursor: not-allowed; text-decoration: line-through; opacity: .7 }
+    .cal-day.available { background: #f0fdf4; color: #166534; cursor: pointer; border-color: #dcfce7 }
+    .cal-day.available:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(22, 101, 52, .12); border-color: #166534 }
+    .cal-day.selected { background: var(--navy); color: var(--white); border-color: var(--navy); transform: translateY(-3px) scale(1.04); z-index: 2; box-shadow: 0 8px 24px rgba(13, 27, 42, .25) }
+    .cal-day.in-range { background: #e0f2fe; color: #0369a1; border-color: #bae6fd }
+    .cal-legend { display: flex; justify-content: center; gap: 32px; margin-top: 32px; font-size: 12px; font-weight: 500; color: var(--text-mid); letter-spacing: 1.5px; text-transform: uppercase }
+    .cal-legend-item { display: flex; align-items: center; gap: 10px }
+    .cal-legend-color { width: 14px; height: 14px; border-radius: 50% }
+    .cal-legend-color.avail { background: #f0fdf4; border: 1.5px solid #dcfce7 }
+    .cal-legend-color.book { background: #fff1f2; border: 1.5px solid #ffe4e6 }
+    .cal-action { margin-top: 40px; text-align: center }
 
     /* ========================================= */
     /* NEW MOBILE OPTIMIZATIONS (Max Width 900px)*/
     /* ========================================= */
     @media(max-width:900px) {
-      nav {
-        padding: 16px 20px;
-      }
-
-      nav.scrolled {
-        padding: 12px 20px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      /* Hero Fixes: Sleeker text and a unified widget card */
-      .hero-title {
-        font-size: clamp(38px, 12vw, 44px);
-        line-height: 1.15;
-        margin-bottom: 16px;
-        letter-spacing: -1px;
-      }
-
-      .hero-subtitle {
-        font-size: 15px;
-        margin-bottom: 30px;
-        padding: 0 10px;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .booking-widget {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 24px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .widget-field {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        padding: 16px 4px;
-        border-radius: 0;
-      }
-
-      .widget-field:last-of-type {
-        border-bottom: none;
-        padding-bottom: 24px;
-      }
-
-      .widget-btn {
-        margin-left: 0;
-        width: 100%;
-        border-radius: 12px;
-        padding: 18px;
-        justify-content: center;
-        box-shadow: 0 8px 20px rgba(13, 27, 42, 0.2);
-        font-size: 14px !important;
-      }
-
-      section {
-        padding: 70px 20px;
-      }
-
-      .section-title {
-        font-size: 32px;
-        line-height: 1.2;
-      }
-
-      /* About Section: Clean, single image layout for mobile */
-      #about {
-        grid-template-columns: 1fr;
-        padding: 70px 20px;
-        gap: 30px;
-      }
-
-      .about-images {
-        height: auto;
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        padding-bottom: 30px;
-      }
-
-      .about-img-main {
-        width: 100%;
-        height: 350px;
-        position: relative;
-        border-radius: 16px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .about-img-accent {
-        display: none;
-      }
-
-      /* Hidden on mobile to prevent ugly overlap */
-      .about-badge {
-        top: auto;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 80px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      }
-
-      .about-badge strong {
-        font-size: 24px;
-      }
-
-      .about-stats {
-        gap: 12px;
-        margin-top: 20px;
-        flex-direction: column;
-      }
-
-      .stat-box {
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .stat-box strong {
-        font-size: 28px;
-      }
-
-      /* Rooms Fixes: Full-width Apple-style buttons */
-      .rooms-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .room-card {
-        border-radius: 16px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-      }
-
-      .room-info {
-        padding: 28px;
-      }
-
-      .room-footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .btn-book {
-        width: 100%;
-        justify-content: center;
-        border-radius: 12px;
-        padding: 18px 24px;
-        box-shadow: 0 8px 20px rgba(13, 27, 42, 0.15);
-      }
-
-      /* Amenities Fixes: Elegant single-column list */
-      .amenities-grid {
-        grid-template-columns: 1fr;
-        border: none;
-        background: transparent;
-        gap: 12px;
-        box-shadow: none;
-      }
-
-      .amenity-item {
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(255, 255, 255, 0.05);
-        padding: 24px;
-        align-items: center;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
-      }
-
-      /* Reviews */
-      .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .review-card {
-        padding: 36px 28px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      }
-
-      .score-main .score-num {
-        font-size: 60px;
-      }
-
-      /* Location & Footer */
-      #location {
-        grid-template-columns: 1fr;
-      }
-
-      .location-content {
-        padding: 60px 24px;
-      }
-
-      .location-list {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .map-wrap {
-        min-height: 350px;
-      }
-
-      footer {
-        padding: 60px 24px 40px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      /* Gallery & Calendar */
-      #gallery {
-        padding: 70px 20px;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .gallery-item:nth-child(n) {
-        grid-column: auto;
-        grid-row: auto;
-        min-height: 180px;
-        border-radius: 12px;
-      }
-
-      .gallery-item:nth-child(1) {
-        grid-column: 1/3;
-        min-height: 240px;
-      }
-
-      #availability {
-        padding: 70px 20px;
-      }
-
-      .calendar-container {
-        padding: 24px 20px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      }
-
-      .cal-day {
-        font-size: 14px;
-        height: 40px;
-      }
-
-      .cal-legend {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        margin-top: 28px;
-      }
-
-      /* Modals */
-      .booking-form {
-        padding: 40px 24px;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .modal {
-        padding: 40px 24px;
-        max-height: 90vh;
-        border-radius: 20px;
-      }
-
-      .modal-room-name {
-        font-size: 28px;
-      }
+      nav { padding: 16px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-controls { gap: 16px; }
+      .nav-cta { display: none !important; }
+      .hero-title { font-size: clamp(40px, 10vw, 46px); line-height: 1.1; margin-bottom: 16px; }
+      .hero-subtitle { font-size: 14px; margin-bottom: 30px; padding: 0 10px; }
+      .booking-widget { flex-direction: column; align-items: stretch; gap: 0; padding: 24px; border-radius: 16px; background: rgba(255, 255, 255, 0.98); }
+      .widget-field { border-right: none; border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding: 14px 4px; border-radius: 0; }
+      .widget-field:last-of-type { border-bottom: none; padding-bottom: 20px; }
+      .widget-btn { margin-left: 0; width: 100%; border-radius: 8px; padding: 16px; justify-content: space-between; }
+      section { padding: 60px 20px; }
+      .section-title { font-size: 34px; }
+      #about { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
+      .about-images { height: auto; min-height: auto; display: flex; flex-direction: column; align-items: center; position: relative; padding-bottom: 30px; }
+      .about-img-main { width: 100%; height: 300px; position: relative; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+      .about-img-accent { display: none; }
+      .about-badge { top: auto; bottom: 0; left: 50%; transform: translateX(-50%); width: 75px; height: 75px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+      .about-badge strong { font-size: 22px; }
+      .about-stats { gap: 16px; margin-top: 20px; }
+      .stat-box { padding: 16px; }
+      .stat-box strong { font-size: 28px; }
+      .rooms-grid { grid-template-columns: 1fr; gap: 24px; }
+      .room-info { padding: 24px; }
+      .room-footer { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .btn-book { width: 100%; justify-content: space-between; border-radius: 8px; padding: 14px 20px; }
+      .amenities-grid { grid-template-columns: 1fr; border: none; background: transparent; gap: 8px; }
+      .amenity-item { border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.03); padding: 20px; align-items: center; }
+      .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+      .review-card { padding: 30px 24px; }
+      .score-main .score-num { font-size: 60px; }
+      #location { grid-template-columns: 1fr; }
+      .location-content { padding: 50px 20px; }
+      .location-list { grid-template-columns: 1fr; }
+      .map-wrap { min-height: 300px; }
+      footer { padding: 50px 20px 30px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      #gallery { padding: 60px 20px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .gallery-item:nth-child(n) { grid-column: auto; grid-row: auto; min-height: 160px; }
+      .gallery-item:nth-child(1) { grid-column: 1/3; min-height: 200px; }
+      #availability { padding: 60px 20px; }
+      .calendar-container { padding: 20px 16px; border-radius: 12px; }
+      .cal-day { font-size: 13px; }
+      .cal-legend { flex-direction: column; align-items: center; gap: 12px; margin-top: 24px; }
+      .modal { padding: 40px 20px; max-height: 85vh; border-radius: 12px; }
+      .modal-room-name { font-size: 26px; }
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .7s ease, transform .7s ease
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0)
-    }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease }
+    .reveal.visible { opacity: 1; transform: translateY(0) }
   </style>
 </head>
 
@@ -2347,49 +379,68 @@
 
   <nav id="navbar">
     <a href="#" class="nav-logo">Seaside <span>Apartments</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#rooms">Rooms</a></li>
-      <li><a href="#availability">Availability</a></li>
-      <li><a href="#amenities">Amenities</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="#availability" class="nav-cta">Book Now</a></li>
-    </ul>
-    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+
+    <div class="nav-controls">
+      <div class="lang-dropdown">
+        <button class="lang-dropdown-btn" title="Select Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span style="font-size:10px;">▼</span>
+        </button>
+        <div class="lang-dropdown-content">
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')" data-active="true">🇬🇧 EN</button>
+          <button class="lang-btn" data-lang="de" onclick="setLang('de')" data-active="false">🇩🇪 DE</button>
+          <button class="lang-btn" data-lang="el" onclick="setLang('el')" data-active="false">🇬🇷 EL</button>
+        </div>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      <a href="#availability" class="nav-cta" data-i18n="nav-book">Book Now</a>
+    </div>
+
+    <div class="full-screen-menu">
+      <ul>
+        <li><a href="#about" data-i18n="nav-about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#rooms" data-i18n="nav-rooms" onclick="toggleMenu()">Rooms</a></li>
+        <li><a href="#gallery" data-i18n="nav-gallery" onclick="toggleMenu()">Gallery</a></li>
+      </ul>
+    </div>
   </nav>
 
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Kremasti, Rhodes — Greece</div>
-      <h1 class="hero-title">Where the Aegean<br>meets <em>luxury living</em></h1>
-      <p class="hero-subtitle">Beachfront apartments · Steps from Kremasti Beach · Rated 10/10</p>
+      <div class="hero-eyebrow" data-i18n="hero-eye">Kremasti, Rhodes — Greece</div>
+      <h1 class="hero-title" data-i18n-html="hero-title">Where the Aegean<br>meets <em>luxury living</em></h1>
+      <p class="hero-subtitle" data-i18n="hero-sub">Beachfront apartments · Steps from Kremasti Beach · Rated 10/10</p>
       <div class="booking-widget">
-        <div class="widget-field"><label>Check In</label><input type="date" id="check-in" min=""></div>
-        <div class="widget-field"><label>Check Out</label><input type="date" id="check-out" min=""></div>
-        <div class="widget-field"><label>Guests</label><select id="guests">
-            <option>1 Guest</option>
-            <option selected>2 Guests</option>
-            <option>3 Guests</option>
-            <option>4 Guests</option>
+        <div class="widget-field"><label data-i18n="lbl-in">Check In</label><input type="date" id="check-in" min="">
+        </div>
+        <div class="widget-field"><label data-i18n="lbl-out">Check Out</label><input type="date" id="check-out" min="">
+        </div>
+        <div class="widget-field"><label data-i18n="lbl-guests">Guests</label><select id="guests">
+            <option>1</option>
+            <option selected>2</option>
+            <option>3</option>
+            <option>4</option>
           </select></div>
-        <div class="widget-field"><label>Room Type</label><select id="room-type">
-            <option value="">Any Room</option>
-            <option>Studio Apartment</option>
-            <option>Sea View Suite</option>
-            <option>Deluxe Family Apartment</option>
+        <div class="widget-field"><label data-i18n="lbl-room">Room Type</label><select id="room-type">
+            <option value="" data-i18n="room-any">Any Room</option>
+            <option value="Studio Apartment" data-i18n="room-1">Studio Apartment</option>
+            <option value="Sea View Suite" data-i18n="room-2">Sea View Suite</option>
+            <option value="Deluxe Family Apartment" data-i18n="room-3">Deluxe Family Apartment</option>
           </select></div>
-        <button class="widget-btn" onclick="quickBook()">Check Availability<span class="btn-arrow"><svg
-              viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
+        <button class="widget-btn" onclick="quickBook()"><span data-i18n="btn-check">Check Availability</span><span
+            class="btn-arrow"><svg viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z">
               </path>
             </svg></span></button>
       </div>
     </div>
-    <div class="hero-scroll"><span>Explore</span>
+    <div class="hero-scroll"><span data-i18n="hero-scroll">Explore</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -2398,52 +449,59 @@
     <div class="about-images reveal">
       <img class="about-img-main" src="484402691.jpg" alt="Apartment exterior">
       <img class="about-img-accent" src="343563634.jpg" alt="Interior">
-      <div class="about-badge"><strong>10</strong><span>Rated</span></div>
+      <div class="about-badge"><strong>10</strong><span data-i18n="badge-rated">Rated</span></div>
     </div>
     <div class="about-text reveal">
-      <div class="section-tag">About Our Property</div>
-      <h2 class="section-title">A <em>private retreat</em><br>by the sea</h2>
+      <div class="section-tag" data-i18n="tag-about">About Our Property</div>
+      <h2 class="section-title" data-i18n-html="title-about">A <em>private retreat</em><br>by the sea</h2>
       <div class="divider"></div>
-      <p class="section-body">Nestled directly on the shores of Kremasti Beach, our luxury apartments offer an
+      <p class="section-body" data-i18n="about-p1">Nestled directly on the shores of Kremasti Beach, our luxury
+        apartments offer an
         unparalleled escape on the beautiful island of Rhodes. Each apartment is a masterclass in comfort — newly built,
         impeccably furnished, and just steps from the crystal-clear Aegean Sea.</p>
-      <p class="section-body" style="margin-top:16px">Owned and lovingly managed by Yannis and family, we pride
+      <p class="section-body" style="margin-top:16px" data-i18n="about-p2">Owned and lovingly managed by Yannis and
+        family, we pride
         ourselves on a personal, warm experience that makes guests return year after year. Only 0.6 miles from Rhodes
         International Airport, yet completely peaceful and private.</p>
       <div class="about-stats">
-        <div class="stat-box"><strong>0.6mi</strong><span>From Airport</span></div>
-        <div class="stat-box"><strong>Steps</strong><span>From the Beach</span></div>
-        <div class="stat-box"><strong>100%</strong><span>Guest Satisfaction</span></div>
-        <div class="stat-box"><strong>Free</strong><span>WiFi & Parking</span></div>
+        <div class="stat-box"><strong>0.6mi</strong><span data-i18n="stat-1">From Airport</span></div>
+        <div class="stat-box"><strong data-i18n="stat-steps">Steps</strong><span data-i18n="stat-2">From the
+            Beach</span></div>
+        <div class="stat-box"><strong>100%</strong><span data-i18n="stat-3">Guest Satisfaction</span></div>
+        <div class="stat-box"><strong data-i18n="stat-free">Free</strong><span data-i18n="stat-4">WiFi & Parking</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="rooms">
     <div class="rooms-header reveal">
-      <div class="section-tag">Accommodation</div>
-      <h2 class="section-title">Choose Your <em>Perfect Space</em></h2>
+      <div class="section-tag" data-i18n="tag-rooms">Accommodation</div>
+      <h2 class="section-title" data-i18n-html="title-rooms">Choose Your <em>Perfect Space</em></h2>
       <div class="divider"></div>
-      <p class="section-body">Every apartment is fully air-conditioned, soundproofed, and equipped with a complete
+      <p class="section-body" data-i18n="rooms-desc">Every apartment is fully air-conditioned, soundproofed, and
+        equipped with a complete
         kitchen, flat-screen TV, and private bathroom. Bed linen and towels provided.</p>
     </div>
     <div class="rooms-grid">
-      <div class="room-card reveal" onclick="openModal('Studio Apartment','€85',85)">
+      <div class="room-card reveal" onclick="openDirectModal('Studio Apartment')">
         <div class="room-img-wrap"><img class="room-img" src="343557945.jpg" alt="Studio Apartment">
           <div class="room-tag">Studio</div>
         </div>
         <div class="room-info">
-          <div class="room-name">Studio Apartment</div>
-          <p class="room-desc">A beautifully appointed open-plan studio with full kitchen facilities, ideal for couples
-            seeking a romantic coastal retreat.</p>
-          <div class="room-feats"><span class="feat-tag">2 Guests</span><span class="feat-tag">Sea View</span><span
-              class="feat-tag">Balcony</span><span class="feat-tag">Air-Con</span><span class="feat-tag">Kitchen</span>
+          <div class="room-name" data-i18n="room-1">Studio Apartment</div>
+          <p class="room-desc" data-i18n="r1-desc">A beautifully appointed open-plan studio with full kitchen
+            facilities, ideal for couples seeking a romantic coastal retreat.</p>
+          <div class="room-feats">
+            <span class="feat-tag" data-i18n="f-2g">2 Guests</span><span class="feat-tag" data-i18n="f-sea">Sea
+              View</span><span class="feat-tag" data-i18n="f-balc">Balcony</span><span class="feat-tag"
+              data-i18n="f-air">Air-Con</span><span class="feat-tag" data-i18n="f-kitch">Kitchen</span>
           </div>
           <div class="room-footer">
-            <div class="room-price"><span class="from">from</span><strong>€85</strong> <span class="night">/night</span>
-            </div>
-            <button class="btn-book">Book Room<span class="btn-arrow"><svg viewBox="0 0 16 19"
-                  xmlns="http://www.w3.org/2000/svg">
+            <div class="room-price"><span class="from" data-i18n="from">from</span><strong>€85</strong> <span
+                class="night" data-i18n="night">/night</span></div>
+            <button class="btn-book"><span data-i18n="btn-book">Book Room</span><span class="btn-arrow"><svg
+                  viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z">
                   </path>
@@ -2451,21 +509,24 @@
           </div>
         </div>
       </div>
-      <div class="room-card reveal" onclick="openModal('Sea View Suite','€120',120)">
+      <div class="room-card reveal" onclick="openDirectModal('Sea View Suite')">
         <div class="room-img-wrap"><img class="room-img" src="343548430.jpg" alt="Sea View Suite">
-          <div class="room-tag" style="background:var(--navy);color:white">Most Popular</div>
+          <div class="room-tag" style="background:var(--navy);color:white" data-i18n="tag-pop">Most Popular</div>
         </div>
         <div class="room-info">
-          <div class="room-name">Sea View Suite</div>
-          <p class="room-desc">Our signature suite features panoramic Aegean views, a spacious bedroom, and a private
-            terrace where the sea breeze greets you each morning.</p>
-          <div class="room-feats"><span class="feat-tag">2 Guests</span><span class="feat-tag">Panoramic
-              View</span><span class="feat-tag">Terrace</span><span class="feat-tag">Walk-in Shower</span></div>
+          <div class="room-name" data-i18n="room-2">Sea View Suite</div>
+          <p class="room-desc" data-i18n="r2-desc">Our signature suite features panoramic Aegean views, a spacious
+            bedroom, and a private terrace where the sea breeze greets you each morning.</p>
+          <div class="room-feats">
+            <span class="feat-tag" data-i18n="f-2g">2 Guests</span><span class="feat-tag" data-i18n="f-pan">Panoramic
+              View</span><span class="feat-tag" data-i18n="f-ter">Terrace</span><span class="feat-tag"
+              data-i18n="f-show">Walk-in Shower</span>
+          </div>
           <div class="room-footer">
-            <div class="room-price"><span class="from">from</span><strong>€120</strong> <span
-                class="night">/night</span></div>
-            <button class="btn-book">Book Room<span class="btn-arrow"><svg viewBox="0 0 16 19"
-                  xmlns="http://www.w3.org/2000/svg">
+            <div class="room-price"><span class="from" data-i18n="from">from</span><strong>€120</strong> <span
+                class="night" data-i18n="night">/night</span></div>
+            <button class="btn-book"><span data-i18n="btn-book">Book Room</span><span class="btn-arrow"><svg
+                  viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z">
                   </path>
@@ -2473,21 +534,24 @@
           </div>
         </div>
       </div>
-      <div class="room-card reveal" onclick="openModal('Deluxe Family Apartment','€155',155)">
+      <div class="room-card reveal" onclick="openDirectModal('Deluxe Family Apartment')">
         <div class="room-img-wrap"><img class="room-img" src="343564591.jpg" alt="Deluxe Apartment">
-          <div class="room-tag">Deluxe</div>
+          <div class="room-tag" data-i18n="tag-del">Deluxe</div>
         </div>
         <div class="room-info">
-          <div class="room-name">Deluxe Family Apartment</div>
-          <p class="room-desc">Spacious 1-bedroom apartment with a separate living area, perfect for families or longer
-            stays. Soundproofed for complete peace and privacy.</p>
-          <div class="room-feats"><span class="feat-tag">4 Guests</span><span class="feat-tag">1 Bedroom</span><span
-              class="feat-tag">Living Room</span><span class="feat-tag">Soundproofed</span></div>
+          <div class="room-name" data-i18n="room-3">Deluxe Family Apartment</div>
+          <p class="room-desc" data-i18n="r3-desc">Spacious 1-bedroom apartment with a separate living area, perfect for
+            families or longer stays. Soundproofed for complete peace and privacy.</p>
+          <div class="room-feats">
+            <span class="feat-tag" data-i18n="f-4g">4 Guests</span><span class="feat-tag" data-i18n="f-1b">1
+              Bedroom</span><span class="feat-tag" data-i18n="f-liv">Living Room</span><span class="feat-tag"
+              data-i18n="f-sound">Soundproofed</span>
+          </div>
           <div class="room-footer">
-            <div class="room-price"><span class="from">from</span><strong>€155</strong> <span
-                class="night">/night</span></div>
-            <button class="btn-book">Book Room<span class="btn-arrow"><svg viewBox="0 0 16 19"
-                  xmlns="http://www.w3.org/2000/svg">
+            <div class="room-price"><span class="from" data-i18n="from">from</span><strong>€155</strong> <span
+                class="night" data-i18n="night">/night</span></div>
+            <button class="btn-book"><span data-i18n="btn-book">Book Room</span><span class="btn-arrow"><svg
+                  viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z">
                   </path>
@@ -2500,17 +564,18 @@
 
   <section id="availability">
     <div class="calendar-header reveal">
-      <div class="section-tag">Live Availability</div>
-      <h2 class="section-title">Check <em>Availability</em></h2>
+      <div class="section-tag" data-i18n="tag-avail">Live Availability</div>
+      <h2 class="section-title" data-i18n-html="title-avail">Check <em>Availability</em></h2>
       <div class="divider" style="margin:24px auto"></div>
-      <p class="section-body" style="margin:0 auto; text-align:center">Select an apartment to view its current
+      <p class="section-body" style="margin:0 auto; text-align:center" data-i18n="avail-desc">Select an apartment to
+        view its current
         availability. Click on green dates to select them for your stay.</p>
     </div>
 
     <div class="calendar-tabs reveal" id="cal-tabs">
-      <button class="cal-tab active" data-room="Studio Apartment">Studio Apartment</button>
-      <button class="cal-tab" data-room="Sea View Suite">Sea View Suite</button>
-      <button class="cal-tab" data-room="Deluxe Family Apartment">Deluxe Family</button>
+      <button class="cal-tab active" data-room="Studio Apartment" data-i18n="room-1">Studio Apartment</button>
+      <button class="cal-tab" data-room="Sea View Suite" data-i18n="room-2">Sea View Suite</button>
+      <button class="cal-tab" data-room="Deluxe Family Apartment" data-i18n="room-3">Deluxe Family Apartment</button>
     </div>
 
     <div class="calendar-container reveal">
@@ -2523,25 +588,27 @@
       </div>
       <div class="cal-legend">
         <div class="cal-legend-item">
-          <div class="cal-legend-color avail"></div> Available
+          <div class="cal-legend-color avail"></div> <span data-i18n="cal-avail">Available</span>
         </div>
         <div class="cal-legend-item">
-          <div class="cal-legend-color book"></div> Booked
+          <div class="cal-legend-color book"></div> <span data-i18n="cal-booked">Booked</span>
         </div>
       </div>
       <div class="cal-action">
         <button class="form-submit" style="width:auto; padding:16px 42px; border-radius:50px; font-size:12px;"
-          id="cal-book-btn" onclick="bookFromCalendar()" disabled>Select Dates to Book</button>
+          id="cal-book-btn" onclick="bookFromCalendar()" disabled data-i18n="btn-select-dates">Select Dates to
+          Book</button>
       </div>
     </div>
   </section>
 
   <section id="amenities">
     <div class="reveal">
-      <div class="section-tag">What's Included</div>
-      <h2 class="section-title">Everything you <em>need</em></h2>
+      <div class="section-tag" data-i18n="tag-am">What's Included</div>
+      <h2 class="section-title" data-i18n-html="title-am">Everything you <em>need</em></h2>
       <div class="divider"></div>
-      <p class="amenities-lead">Every detail has been considered to make your stay effortless and unforgettable.</p>
+      <p class="amenities-lead" data-i18n="am-lead">Every detail has been considered to make your stay effortless and
+        unforgettable.</p>
     </div>
     <div class="amenities-grid reveal">
       <div class="amenity-item">
@@ -2550,8 +617,8 @@
             <path d="M12 3C9 3 7 7 7 10s2 5 5 5 5-2 5-5-2-7-5-7z" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Beachfront Access</div>
-          <div class="amenity-sub">Steps to Kremasti Beach</div>
+          <div class="amenity-name" data-i18n="am-1-t">Beachfront Access</div>
+          <div class="amenity-sub" data-i18n="am-1-s">Steps to Kremasti Beach</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2561,8 +628,8 @@
             <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Free Private Parking</div>
-          <div class="amenity-sub">Secure on-site parking</div>
+          <div class="amenity-name" data-i18n="am-2-t">Free Private Parking</div>
+          <div class="amenity-sub" data-i18n="am-2-s">Secure on-site parking</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2573,8 +640,8 @@
             <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Free High-Speed WiFi</div>
-          <div class="amenity-sub">Throughout the property</div>
+          <div class="amenity-name" data-i18n="am-3-t">Free High-Speed WiFi</div>
+          <div class="amenity-sub" data-i18n="am-3-s">Throughout the property</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2584,8 +651,8 @@
             <circle cx="12" cy="12" r="4" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Air Conditioning</div>
-          <div class="amenity-sub">In every room</div>
+          <div class="amenity-name" data-i18n="am-4-t">Air Conditioning</div>
+          <div class="amenity-sub" data-i18n="am-4-s">In every room</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2595,8 +662,8 @@
             <path d="M7 19v2M17 19v2" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Full Kitchen</div>
-          <div class="amenity-sub">Oven, fridge, coffee machine</div>
+          <div class="amenity-name" data-i18n="am-5-t">Full Kitchen</div>
+          <div class="amenity-sub" data-i18n="am-5-s">Oven, fridge, coffee machine</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2605,8 +672,8 @@
             <path d="M8 21h8M12 17v4" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Flat-Screen TV</div>
-          <div class="amenity-sub">Smart TV included</div>
+          <div class="amenity-name" data-i18n="am-6-t">Flat-Screen TV</div>
+          <div class="amenity-sub" data-i18n="am-6-s">Smart TV included</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2615,8 +682,8 @@
             <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Soundproofed</div>
-          <div class="amenity-sub">Complete tranquillity</div>
+          <div class="amenity-name" data-i18n="am-7-t">Soundproofed</div>
+          <div class="amenity-sub" data-i18n="am-7-s">Complete tranquillity</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2625,8 +692,8 @@
             <path d="M9 11a3 3 0 106 0 3 3 0 00-6 0z" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Garden & Terrace</div>
-          <div class="amenity-sub">Beautiful outdoor spaces</div>
+          <div class="amenity-name" data-i18n="am-8-t">Garden & Terrace</div>
+          <div class="amenity-sub" data-i18n="am-8-s">Beautiful outdoor spaces</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2634,8 +701,8 @@
             <path d="M3 7h18M3 10h18M7 10v9a1 1 0 001 1h8a1 1 0 001-1v-9" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Linen & Towels</div>
-          <div class="amenity-sub">Freshly provided</div>
+          <div class="amenity-name" data-i18n="am-9-t">Linen & Towels</div>
+          <div class="amenity-sub" data-i18n="am-9-s">Freshly provided</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2645,8 +712,8 @@
             <path d="M1 18s2-2 5-2 5 2 8 2 5-2 5-2" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Scenic Sea Views</div>
-          <div class="amenity-sub">Sea or garden views</div>
+          <div class="amenity-name" data-i18n="am-10-t">Scenic Sea Views</div>
+          <div class="amenity-sub" data-i18n="am-10-s">Sea or garden views</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2655,8 +722,8 @@
             <path d="M3 20h18" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Airport Transfers</div>
-          <div class="amenity-sub">On request from Yannis</div>
+          <div class="amenity-name" data-i18n="am-11-t">Airport Transfers</div>
+          <div class="amenity-sub" data-i18n="am-11-s">On request from Yannis</div>
         </div>
       </div>
       <div class="amenity-item">
@@ -2665,8 +732,8 @@
             <ellipse cx="12" cy="16" rx="5" ry="3" />
           </svg></div>
         <div class="amenity-text">
-          <div class="amenity-name">Walk-in Shower</div>
-          <div class="amenity-sub">Hair dryer & toiletries</div>
+          <div class="amenity-name" data-i18n="am-12-t">Walk-in Shower</div>
+          <div class="amenity-sub" data-i18n="am-12-s">Hair dryer & toiletries</div>
         </div>
       </div>
     </div>
@@ -2675,44 +742,44 @@
   <section id="gallery">
     <div class="gallery-header reveal">
       <div>
-        <div class="section-tag">Photo Gallery</div>
-        <h2 class="section-title">See your <em>home away</em> from home</h2>
+        <div class="section-tag" data-i18n="tag-gal">Photo Gallery</div>
+        <h2 class="section-title" data-i18n-html="title-gal">See your <em>home away</em> from home</h2>
       </div>
-      <div class="gallery-count">6 Photos</div>
+      <div class="gallery-count" data-i18n="gal-count">6 Photos</div>
     </div>
     <div class="gallery-grid reveal">
       <div class="gallery-item" onclick="openLightbox(0)"><img src="484401212.jpg" alt="Balcony">
-        <div class="gallery-overlay"><span class="gallery-caption">Balcony</span></div>
+        <div class="gallery-overlay"><span class="gallery-caption" data-i18n="gal-1">Balcony</span></div>
         <div class="gallery-icon"><svg viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg></div>
       </div>
       <div class="gallery-item" onclick="openLightbox(1)"><img src="343570641.jpg" alt="Kitchen">
-        <div class="gallery-overlay"><span class="gallery-caption">Kitchen</span></div>
+        <div class="gallery-overlay"><span class="gallery-caption" data-i18n="gal-2">Kitchen</span></div>
         <div class="gallery-icon"><svg viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg></div>
       </div>
       <div class="gallery-item" onclick="openLightbox(2)"><img src="343564945.jpg" alt="Bathroom">
-        <div class="gallery-overlay"><span class="gallery-caption">Bathroom</span></div>
+        <div class="gallery-overlay"><span class="gallery-caption" data-i18n="gal-3">Bathroom</span></div>
         <div class="gallery-icon"><svg viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg></div>
       </div>
       <div class="gallery-item" onclick="openLightbox(3)"><img src="343564591.jpg" alt="Bedroom">
-        <div class="gallery-overlay"><span class="gallery-caption">Bedroom</span></div>
+        <div class="gallery-overlay"><span class="gallery-caption" data-i18n="gal-4">Bedroom</span></div>
         <div class="gallery-icon"><svg viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg></div>
       </div>
       <div class="gallery-item" onclick="openLightbox(4)"><img src="343563634.jpg" alt="Living room">
-        <div class="gallery-overlay"><span class="gallery-caption">Living Room</span></div>
+        <div class="gallery-overlay"><span class="gallery-caption" data-i18n="gal-5">Living Room</span></div>
         <div class="gallery-icon"><svg viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg></div>
       </div>
       <div class="gallery-item" onclick="openLightbox(5)"><img src="535146417.jpg" alt="Exterior">
-        <div class="gallery-overlay"><span class="gallery-caption">Exterior</span></div>
+        <div class="gallery-overlay"><span class="gallery-caption" data-i18n="gal-6">Exterior</span></div>
         <div class="gallery-icon"><svg viewBox="0 0 24 24">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg></div>
@@ -2730,10 +797,11 @@
 
   <section id="experience">
     <div class="exp-content reveal">
-      <div class="section-tag">Your Experience</div>
-      <h2 class="section-title">Kremasti — <em>your island base</em></h2>
+      <div class="section-tag" data-i18n="tag-exp">Your Experience</div>
+      <h2 class="section-title" data-i18n-html="title-exp">Kremasti — <em>your island base</em></h2>
       <div class="divider" style="margin:24px auto"></div>
-      <p class="exp-lead">Kremasti is a peaceful, authentic village offering the best of Rhodes without the tourist
+      <p class="exp-lead" data-i18n="exp-lead">Kremasti is a peaceful, authentic village offering the best of Rhodes
+        without the tourist
         crowds. From here, the whole island is yours to discover.</p>
       <div class="exp-grid">
         <div class="exp-item">
@@ -2742,9 +810,9 @@
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
               <line x1="4" y1="22" x2="4" y2="15" />
             </svg></div>
-          <div class="exp-item-title">Beach Direct Access</div>
-          <div class="exp-item-desc">Step out of your apartment and onto Kremasti Beach in minutes. Ideal for morning
-            swims and windsurfing.</div>
+          <div class="exp-item-title" data-i18n="exp-1-t">Beach Direct Access</div>
+          <div class="exp-item-desc" data-i18n="exp-1-s">Step out of your apartment and onto Kremasti Beach in minutes.
+            Ideal for morning swims and windsurfing.</div>
         </div>
         <div class="exp-item">
           <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -2752,9 +820,9 @@
               <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
               <circle cx="12" cy="10" r="3" />
             </svg></div>
-          <div class="exp-item-title">Prime Connectivity</div>
-          <div class="exp-item-desc">Minutes from Rhodes International Airport for effortless arrivals, and perfectly
-            positioned for island day trips.</div>
+          <div class="exp-item-title" data-i18n="exp-2-t">Prime Connectivity</div>
+          <div class="exp-item-desc" data-i18n="exp-2-s">Minutes from Rhodes International Airport for effortless
+            arrivals, and perfectly positioned for island day trips.</div>
         </div>
         <div class="exp-item">
           <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -2763,9 +831,9 @@
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 0 1-8 0" />
             </svg></div>
-          <div class="exp-item-title">Pristine Old Town</div>
-          <div class="exp-item-desc">A short journey brings you to Rhodes Old Town, a breathtaking UNESCO World Heritage
-            site.</div>
+          <div class="exp-item-title" data-i18n="exp-3-t">Pristine Old Town</div>
+          <div class="exp-item-desc" data-i18n="exp-3-s">A short journey brings you to Rhodes Old Town, a breathtaking
+            UNESCO World Heritage site.</div>
         </div>
         <div class="exp-item">
           <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -2775,18 +843,18 @@
               <line x1="8" y1="2" x2="8" y2="6" />
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg></div>
-          <div class="exp-item-title">Events & Day Trips</div>
-          <div class="exp-item-desc">Discover Lindos, Faliraki, and the Valley of the Butterflies, all easily accessible
-            from your base.</div>
+          <div class="exp-item-title" data-i18n="exp-4-t">Events & Day Trips</div>
+          <div class="exp-item-desc" data-i18n="exp-4-s">Discover Lindos, Faliraki, and the Valley of the Butterflies,
+            all easily accessible from your base.</div>
         </div>
         <div class="exp-item">
           <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
               stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg></div>
-          <div class="exp-item-title">Local Tavernas</div>
-          <div class="exp-item-desc">Authentic Greek dining, supermarkets, and quaint cafes are all within a relaxed
-            walking distance.</div>
+          <div class="exp-item-title" data-i18n="exp-5-t">Local Tavernas</div>
+          <div class="exp-item-desc" data-i18n="exp-5-s">Authentic Greek dining, supermarkets, and quaint cafes are all
+            within a relaxed walking distance.</div>
         </div>
         <div class="exp-item">
           <div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -2794,9 +862,9 @@
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg></div>
-          <div class="exp-item-title">Personalized Care</div>
-          <div class="exp-item-desc">Your host, Yannis, is always available to organize transfers and share his favorite
-            hidden island gems.</div>
+          <div class="exp-item-title" data-i18n="exp-6-t">Personalized Care</div>
+          <div class="exp-item-desc" data-i18n="exp-6-s">Your host, Yannis, is always available to organize transfers
+            and share his favorite hidden island gems.</div>
         </div>
       </div>
     </div>
@@ -2804,14 +872,14 @@
 
   <section id="reviews">
     <div class="reviews-header reveal">
-      <div class="section-tag">Guest Reviews</div>
-      <h2 class="section-title">What our guests <em>say</em></h2>
+      <div class="section-tag" data-i18n="tag-rev">Guest Reviews</div>
+      <h2 class="section-title" data-i18n-html="title-rev">What our guests <em>say</em></h2>
       <div class="divider"></div>
       <div class="reviews-score-bar">
         <div class="score-main"><span class="score-num">10</span><span class="score-max">/10</span></div>
         <div class="score-divider"></div>
         <div class="score-details">
-          <div class="score-label">Overall Rating</div>
+          <div class="score-label" data-i18n="rev-overall">Overall Rating</div>
           <div class="score-stars"><svg viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg><svg viewBox="0 0 24 24">
@@ -2823,7 +891,7 @@
             </svg><svg viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg></div>
-          <div class="score-platform"><strong>Exceptional</strong> · Booking.com</div>
+          <div class="score-platform"><strong data-i18n="rev-exc">Exceptional</strong> · Booking.com</div>
         </div>
       </div>
     </div>
@@ -2846,15 +914,15 @@
           </svg><svg viewBox="0 0 24 24">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg></div>
-        <p class="review-text">The best accommodation we could choose in Rhodes. Excellently furnished and equipped
-          apartment in a modern villa, right by the sea. The sea is clean, turquoise, with waves — absolutely
-          breathtaking.</p>
+        <p class="review-text" data-i18n="rev-1">The best accommodation we could choose in Rhodes. Excellently furnished
+          and equipped apartment in a modern villa, right by the sea. The sea is clean, turquoise, with waves —
+          absolutely breathtaking.</p>
         <div class="review-divider"></div>
         <div class="review-author">
           <div class="review-avatar">M</div>
           <div>
             <div class="review-name">Marta K.</div>
-            <div class="review-country">Germany</div>
+            <div class="review-country" data-i18n="c-ger">Germany</div>
           </div>
         </div>
       </div>
@@ -2876,14 +944,14 @@
           </svg><svg viewBox="0 0 24 24">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg></div>
-        <p class="review-text">Very nice place by the sea. Brand new units, impeccably clean. Close to the airport, very
-          comfortable. Yannis even organized a pick-up — exceptional service!</p>
+        <p class="review-text" data-i18n="rev-2">Very nice place by the sea. Brand new units, impeccably clean. Close to
+          the airport, very comfortable. Yannis even organized a pick-up — exceptional service!</p>
         <div class="review-divider"></div>
         <div class="review-author">
           <div class="review-avatar">J</div>
           <div>
             <div class="review-name">James T.</div>
-            <div class="review-country">United Kingdom</div>
+            <div class="review-country" data-i18n="c-uk">United Kingdom</div>
           </div>
         </div>
       </div>
@@ -2905,14 +973,15 @@
           </svg><svg viewBox="0 0 24 24">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg></div>
-        <p class="review-text">Everything in the apartment is new and of high quality, with a beautiful view of the sea.
-          Parking was convenient, the beach within walking distance. We will definitely come back next summer!</p>
+        <p class="review-text" data-i18n="rev-3">Everything in the apartment is new and of high quality, with a
+          beautiful view of the sea. Parking was convenient, the beach within walking distance. We will definitely come
+          back next summer!</p>
         <div class="review-divider"></div>
         <div class="review-author">
           <div class="review-avatar">A</div>
           <div>
             <div class="review-name">Anna P.</div>
-            <div class="review-country">Netherlands</div>
+            <div class="review-country" data-i18n="c-nl">Netherlands</div>
           </div>
         </div>
       </div>
@@ -2921,26 +990,24 @@
 
   <section id="location">
     <div class="location-content reveal">
-      <div class="section-tag">Find Us</div>
-      <h2 class="section-title">Kremasti, <em>Rhodes</em></h2>
+      <div class="section-tag" data-i18n="tag-loc">Find Us</div>
+      <h2 class="section-title" data-i18n-html="title-loc">Kremasti, <em>Rhodes</em></h2>
       <div class="divider"></div>
-      <p class="section-body">Perfectly positioned on the northwest coast of Rhodes, just moments from everything you
-        need and nothing you don't.</p>
+      <p class="section-body" data-i18n="loc-desc">Perfectly positioned on the northwest coast of Rhodes, just moments
+        from everything you need and nothing you don't.</p>
       <ul class="location-list">
-        <li>✈️ Rhodes Airport <span class="dist">0.6 mi</span></li>
-        <li>🏖️ Kremasti Beach <span class="dist">50 m</span></li>
-        <li>🏛️ Rhodes Old Town <span class="dist">7 mi</span></li>
-        <li>🛕 Temple of Apollon <span class="dist">7 mi</span></li>
-        <li>🍴 Local Tavernas <span class="dist">2 min</span></li>
-        <li>🛒 Supermarket <span class="dist">5 min</span></li>
+        <li>✈️ <span data-i18n="loc-1">Rhodes Airport</span> <span class="dist">0.6 mi</span></li>
+        <li>🏖️ <span data-i18n="loc-2">Kremasti Beach</span> <span class="dist">50 m</span></li>
+        <li>🏛️ <span data-i18n="loc-3">Rhodes Old Town</span> <span class="dist">7 mi</span></li>
+        <li>🛕 <span data-i18n="loc-4">Temple of Apollon</span> <span class="dist">7 mi</span></li>
+        <li>🍴 <span data-i18n="loc-5">Local Tavernas</span> <span class="dist">2 min</span></li>
+        <li>🛒 <span data-i18n="loc-6">Supermarket</span> <span class="dist">5 min</span></li>
       </ul>
       <div style="margin-top:28px">
-        <p style="font-size:13px;color:var(--text-mid)">📍 Kremasti, Rhodes Island, Greece, 85101</p>
-        <p style="font-size:13px;color:var(--text-mid);margin-top:6px">📞 <a href="tel:+302241000000"
-            style="color:var(--gold);text-decoration:none">+30 2241 000 000</a></p>
-        <p style="font-size:13px;color:var(--text-mid);margin-top:6px">✉️ <a
-            href="mailto:info@seasideapartments-rhodes.gr"
-            style="color:var(--gold);text-decoration:none">info@seasideapartments-rhodes.gr</a></p>
+        <p style="font-size:14px;color:var(--text-dark);font-weight:600" data-i18n="loc-addr">📍 Kremasti, Rhodes Island, Greece, 85101</p>
+        <p style="font-size:14px;color:var(--text-mid);margin-top:10px">📞 <a href="tel:+302241000000" style="color:var(--gold);text-decoration:none">+30 2241 000 000</a></p>
+        <p style="font-size:14px;color:var(--text-mid);margin-top:10px">✉️ <a href="mailto:info@seasideapartments-rhodes.gr" style="color:var(--gold);text-decoration:none">info@seasideapartments-rhodes.gr</a></p>
+        <p style="font-size:14px;color:var(--text-mid);margin-top:10px">📷 <a href="https://www.instagram.com/seaside_luxury_apartments_k?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color:var(--gold);text-decoration:none">@seaside_luxury_apartments_k</a></p>
       </div>
     </div>
     <div class="map-wrap"><iframe src="https://maps.google.com/maps?q=36.4169258,28.1138108&z=17&output=embed"
@@ -2951,33 +1018,36 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="footer-logo">Seaside <span>Apartments</span></span>
-        <p>Luxury beachfront apartments on the beautiful island of Rhodes, Greece. Your private Aegean escape awaits.
-        </p>
-        <div class="social-links" style="margin-top:24px"><a href="#" title="Instagram">📷</a><a href="#"
-            title="Facebook">📘</a><a href="#" title="TripAdvisor">⭐</a></div>
+        <p data-i18n="foot-brand">Luxury beachfront apartments on the beautiful island of Rhodes, Greece. Your private
+          Aegean escape awaits.</p>
+        <div class="social-links" style="margin-top:24px">
+          <a href="https://www.instagram.com/seaside_luxury_apartments_k?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+            <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4 data-i18n="foot-l1">Quick Links</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#rooms">Our Rooms</a></li>
-          <li><a href="#amenities">Amenities</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#reviews">Guest Reviews</a></li>
-          <li><a href="#availability">Book Direct</a></li>
+          <li><a href="#about" data-i18n="nav-about">About Us</a></li>
+          <li><a href="#rooms" data-i18n="nav-rooms">Our Rooms</a></li>
+          <li><a href="#amenities" data-i18n="nav-amenities">Amenities</a></li>
+          <li><a href="#gallery" data-i18n="nav-gallery">Gallery</a></li>
+          <li><a href="#reviews" data-i18n="nav-reviews">Guest Reviews</a></li>
+          <li><a href="#availability" data-i18n="foot-l2">Book Direct</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Rooms</h4>
+        <h4 data-i18n="foot-r1">Rooms</h4>
         <ul>
-          <li><a href="#rooms">Studio Apartment</a></li>
-          <li><a href="#rooms">Sea View Suite</a></li>
-          <li><a href="#rooms">Deluxe Apartment</a></li>
+          <li><a href="#rooms" data-i18n="room-1">Studio Apartment</a></li>
+          <li><a href="#rooms" data-i18n="room-2">Sea View Suite</a></li>
+          <li><a href="#rooms" data-i18n="room-3">Deluxe Apartment</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
-        <p>Kremasti, Rhodes Island<br>Greece, 85101</p>
+        <h4 data-i18n="foot-c1">Contact</h4>
+        <p data-i18n="foot-addr">Kremasti, Rhodes Island<br>Greece, 85101</p>
         <p style="margin-top:12px"><a href="tel:+302241000000" style="color:var(--gold);text-decoration:none">+30 2241
             000 000</a></p>
         <p style="margin-top:4px"><a href="mailto:info@seasideapartments-rhodes.gr"
@@ -2988,149 +1058,33 @@
     <div class="footer-bottom">
       <p onclick="showAdminLogin()" style="cursor: pointer; transition: color 0.3s;"
         onmouseover="this.style.color='#c9a55a'" onmouseout="this.style.color=''">© 2026 <span>Seaside Luxury
-          Apartments</span>, Kremasti, Rhodes. All rights reserved.</p>
-      <p>Designed with ❤️ for Rhodes Island</p>
+          Apartments</span>. <span data-i18n="foot-copy">All rights reserved.</span></p>
+      <p data-i18n="foot-design">Designed with ❤️ for Rhodes Island</p>
     </div>
   </footer>
 
-  <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal-overlay" id="direct-modal" onclick="closeModalOutside(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-room-name" id="modal-name"></div>
-      <div class="modal-price" id="modal-price"></div>
-      <div class="form-grid">
-        <div class="form-group"><label>First Name</label><input type="text" placeholder="First name" id="m-fname"></div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="Email address" id="m-email"></div>
-        <div class="form-group"><label>Check In</label><input type="date" id="m-in"></div>
-        <div class="form-group"><label>Check Out</label><input type="date" id="m-out"></div>
-        <div class="form-group"><label>Guests</label><select id="m-guests">
-            <option>1 Guest</option>
-            <option selected>2 Guests</option>
-            <option>3 Guests</option>
-            <option>4 Guests</option>
-          </select></div>
-        <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 234 567 8900" id="m-phone"></div>
+      <h2 class="modal-room-name" id="modal-name">Unlock Direct Pricing</h2>
+      
+      <p class="modal-pitch" data-i18n="mod-desc">Booking platforms charge high hidden fees. Contact us directly on your preferred platform to secure your dates at a special discounted rate!</p>
+      
+      <a href="#" id="modal-wa-btn" target="_blank" class="contact-btn btn-whatsapp" style="display:flex; align-items:center; justify-content:center; gap:12px; width:100%; padding:18px; margin-bottom:12px; border-radius:6px; font-family:'Jost', sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-decoration:none; transition:all 0.3s ease; border:none; cursor:pointer; background:#25D366; color:white; box-shadow:0 8px 20px rgba(37, 211, 102, 0.25);">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:white;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
+        <span data-i18n="mod-wa">Message on WhatsApp</span>
+      </a>
 
-        <div class="form-group full" style="flex-direction: row; align-items: center; gap: 12px; margin-top: 10px;">
-          <input type="checkbox" id="m-gdpr" style="width: auto; padding: 0; cursor: pointer;">
-          <label for="m-gdpr"
-            style="font-size: 12px; text-transform: none; color: var(--text-mid); font-weight: 400; letter-spacing: 0; cursor: pointer;">
-            I agree to the <a href="#" style="color: var(--gold); text-decoration: none;">Terms & Conditions</a> and <a
-              href="#" style="color: var(--gold); text-decoration: none;">Privacy Policy</a>.
-          </label>
-        </div>
-      </div>
-      <div class="modal-price-calc" id="modal-price-calc">Total for <span id="calc-nights"></span> nights: <strong
-          id="calc-total"></strong></div>
-      <button class="form-submit" id="modal-submit-btn" style="margin-top:24px" onclick="submitModal()">Pay Securely
-        with Stripe →</button>
-      <div class="stripe-badge">🔒 Secure payment powered by Stripe</div>
-      <p class="form-note">Instant confirmation · Best rate guaranteed</p>
-    </div>
-  </div>
+      <a href="https://www.instagram.com/seaside_luxury_apartments_k?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-btn btn-instagram" style="display:flex; align-items:center; justify-content:center; gap:12px; width:100%; padding:18px; margin-bottom:12px; border-radius:6px; font-family:'Jost', sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-decoration:none; transition:all 0.3s ease; border:none; cursor:pointer; background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color:white; box-shadow:0 8px 20px rgba(220, 39, 67, 0.25);">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:white;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <span data-i18n="mod-ig">Message on Instagram</span>
+      </a>
 
-  <div id="admin-overlay"
-    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 27, 42, 0.98); z-index: 9999; overflow-y: auto; color: white; font-family: 'Jost', sans-serif;">
+      <a href="#" id="modal-em-btn" class="contact-btn btn-email" style="display:flex; align-items:center; justify-content:center; gap:12px; width:100%; padding:18px; margin-bottom:12px; border-radius:6px; font-family:'Jost', sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-decoration:none; transition:all 0.3s ease; border:none; cursor:pointer; background:var(--navy); color:white; box-shadow:0 8px 20px rgba(13, 27, 42, 0.25);">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:white;"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+        <span data-i18n="mod-em">Send an Email</span>
+      </a>
 
-    <div id="admin-login-screen"
-      style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-      <div
-        style="background: white; color: var(--navy); padding: 50px; border-radius: 4px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-        <h2
-          style="margin-top: 0; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 8px;">
-          Yannis' Dashboard</h2>
-        <p style="font-size: 14px; color: var(--text-mid); margin-bottom: 30px;">Enter master password to access control
-          center</p>
-
-        <input type="password" id="admin-pass" placeholder="Password..."
-          style="width: 100%; padding: 14px 16px; margin-bottom: 20px; border: 1.5px solid #e2e8f0; border-radius: 3px; box-sizing: border-box; font-family: 'Jost', sans-serif; font-size: 15px; outline: none;">
-
-        <button onclick="attemptLogin()"
-          style="width: 100%; padding: 16px; background: var(--navy); color: white; border: none; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 3px; cursor: pointer; transition: background 0.3s;">Login
-          →</button>
-        <p id="admin-error" style="color: #c0392b; font-size: 13px; display: none; margin-top: 16px; font-weight: 500;">
-          Incorrect password.</p>
-
-        <button onclick="closeAdmin()"
-          style="margin-top: 24px; background: none; border: none; color: var(--text-mid); cursor: pointer; font-size: 12px; text-decoration: underline;">Close
-          Window</button>
-      </div>
-    </div>
-
-    <div id="admin-dashboard-screen" style="display: none; padding: 60px 20px; max-width: 1000px; margin: 0 auto;">
-      <div
-        style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); padding-bottom: 24px; margin-bottom: 40px;">
-        <h1 style="color: var(--gold); margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 36px;">Seaside
-          Control Center</h1>
-        <button onclick="closeAdmin()"
-          style="padding: 12px 24px; background: transparent; color: white; border: 1px solid white; border-radius: 3px; cursor: pointer; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; transition: all 0.3s;">Log
-          Out & Close</button>
-      </div>
-
-      <div
-        style="background: white; border-radius: 4px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); color: var(--navy);">
-        <h3 style="margin-top: 0; color: var(--navy); font-size: 18px; font-weight: 600; margin-bottom: 16px;">Add
-          Manual Booking (Block Dates)</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 16px; align-items: end;">
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--gold);">Guest
-              Name</label>
-            <input type="text" id="admin-manual-name"
-              style="padding: 10px; border: 1px solid #e2e8f0; border-radius: 3px; outline: none; font-family: 'Jost', sans-serif;"
-              placeholder="John Doe">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--gold);">Room
-              Type</label>
-            <select id="admin-manual-room"
-              style="padding: 10px; border: 1px solid #e2e8f0; border-radius: 3px; outline: none; font-family: 'Jost', sans-serif; cursor: pointer;">
-              <option>Studio Apartment</option>
-              <option>Sea View Suite</option>
-              <option>Deluxe Family Apartment</option>
-            </select>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--gold);">Check
-              In</label>
-            <input type="date" id="admin-manual-in"
-              style="padding: 10px; border: 1px solid #e2e8f0; border-radius: 3px; outline: none; font-family: 'Jost', sans-serif; cursor: pointer;">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <label style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--gold);">Check
-              Out</label>
-            <input type="date" id="admin-manual-out"
-              style="padding: 10px; border: 1px solid #e2e8f0; border-radius: 3px; outline: none; font-family: 'Jost', sans-serif; cursor: pointer;">
-          </div>
-          <button onclick="addManualBooking()"
-            style="padding: 12px 24px; background: var(--navy); color: white; border: none; border-radius: 3px; cursor: pointer; font-weight: 600; text-transform: uppercase; font-size: 12px; height: 42px; transition: background 0.3s;"
-            onmouseover="this.style.background='var(--gold)'" onmouseout="this.style.background='var(--navy)'">Block
-            Dates</button>
-        </div>
-      </div>
-
-      <div
-        style="background: white; border-radius: 4px; padding: 0; color: var(--navy); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-        <div
-          style="padding: 24px 30px; background: var(--cream); border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
-          <h2 style="margin: 0; font-size: 18px; font-weight: 600;">Live Bookings</h2>
-        </div>
-
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 700px;">
-            <thead>
-              <tr
-                style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: var(--text-mid); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
-                <th style="padding: 16px 30px;">Guest Details</th>
-                <th style="padding: 16px 30px;">Dates & Room</th>
-                <th style="padding: 16px 30px;">Financials</th>
-                <th style="padding: 16px 30px;">Status</th>
-              </tr>
-            </thead>
-            <tbody id="admin-tbody">
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -3140,105 +1094,210 @@
   <script>
     const SUPABASE_URL = 'https://ynqofinheztebouwfwrc.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_NS3bSZwK_djNqa944kliCw_lkOyVZDH';
-    const EDGE_URL = `${SUPABASE_URL}/functions/v1/create-checkout`;
 
-    // Initialize Supabase Client globally so the dashboard can use it
     const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
     const ROOM_PRICES = { 'Studio Apartment': 85, 'Sea View Suite': 120, 'Deluxe Family Apartment': 155 };
 
-    // ── intl-tel-input ─────────────────────────────────────
-    const phoneInputField = document.querySelector('#m-phone');
-    const iti = window.intlTelInput(phoneInputField, {
-      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
-      initialCountry: 'auto',
-      geoIpLookup: function (success) { fetch('https://ipapi.co/json').then(r => r.json()).then(d => success(d.country)).catch(() => success('gr')); }
-    });
+    // ── THE FULL TRANSLATION DICTIONARY ─────────────────────────────────
+    const translations = {
+      en: {
+        "nav-about": "About", "nav-rooms": "Rooms", "nav-avail": "Availability", "nav-amenities": "Amenities", "nav-gallery": "Gallery", "nav-reviews": "Reviews", "nav-loc": "Location", "nav-book": "Book Now",
+        "hero-eye": "Kremasti, Rhodes — Greece", "hero-title": "Where the Aegean<br>meets <em>luxury living</em>", "hero-sub": "Beachfront apartments · Steps from Kremasti Beach · Rated 10/10", "hero-scroll": "Explore",
+        "lbl-in": "Check In", "lbl-out": "Check Out", "lbl-guests": "Guests", "lbl-room": "Room Type", "room-any": "Any Room",
+        "btn-check": "Check Availability", "btn-book": "Book Room", "btn-select-dates": "Select Dates to Book",
 
-    // ── Toast ──────────────────────────────────────────────
-    function showToast(msg, type = 'success') {
-      const t = document.getElementById('toast');
-      t.textContent = msg; t.className = 'toast ' + type; t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 4500);
+        "tag-about": "About Our Property", "title-about": "A <em>private retreat</em><br>by the sea",
+        "about-p1": "Nestled directly on the shores of Kremasti Beach, our luxury apartments offer an unparalleled escape on the beautiful island of Rhodes. Each apartment is a masterclass in comfort — newly built, impeccably furnished, and just steps from the crystal-clear Aegean Sea.",
+        "about-p2": "Owned and lovingly managed by Yannis and family, we pride ourselves on a personal, warm experience that makes guests return year after year. Only 0.6 miles from Rhodes International Airport, yet completely peaceful and private.",
+        "badge-rated": "Rated", "stat-1": "From Airport", "stat-steps": "Steps", "stat-2": "From the Beach", "stat-3": "Guest Satisfaction", "stat-free": "Free", "stat-4": "WiFi & Parking",
+
+        "tag-rooms": "Accommodation", "title-rooms": "Choose Your <em>Perfect Space</em>", "rooms-desc": "Every apartment is fully air-conditioned, soundproofed, and equipped with a complete kitchen, flat-screen TV, and private bathroom. Bed linen and towels provided.",
+        "room-1": "Studio Apartment", "r1-desc": "A beautifully appointed open-plan studio with full kitchen facilities, ideal for couples seeking a romantic coastal retreat.",
+        "room-2": "Sea View Suite", "r2-desc": "Our signature suite features panoramic Aegean views, a spacious bedroom, and a private terrace where the sea breeze greets you each morning.", "tag-pop": "Most Popular",
+        "room-3": "Deluxe Family Apartment", "r3-desc": "Spacious 1-bedroom apartment with a separate living area, perfect for families or longer stays. Soundproofed for complete peace and privacy.", "tag-del": "Deluxe",
+        "f-2g": "2 Guests", "f-4g": "4 Guests", "f-sea": "Sea View", "f-balc": "Balcony", "f-air": "Air-Con", "f-kitch": "Kitchen", "f-pan": "Panoramic View", "f-ter": "Terrace", "f-show": "Walk-in Shower", "f-1b": "1 Bedroom", "f-liv": "Living Room", "f-sound": "Soundproofed",
+        "from": "from", "night": "/night",
+
+        "tag-avail": "Live Availability", "title-avail": "Check <em>Availability</em>", "avail-desc": "Select an apartment to view its current availability. Click on green dates to select them for your stay.",
+        "cal-avail": "Available", "cal-booked": "Booked",
+
+        "tag-am": "What's Included", "title-am": "Everything you <em>need</em>", "am-lead": "Every detail has been considered to make your stay effortless and unforgettable.",
+        "am-1-t": "Beachfront Access", "am-1-s": "Steps to Kremasti Beach", "am-2-t": "Free Private Parking", "am-2-s": "Secure on-site parking", "am-3-t": "Free High-Speed WiFi", "am-3-s": "Throughout the property", "am-4-t": "Air Conditioning", "am-4-s": "In every room", "am-5-t": "Full Kitchen", "am-5-s": "Oven, fridge, coffee machine", "am-6-t": "Flat-Screen TV", "am-6-s": "Smart TV included", "am-7-t": "Soundproofed", "am-7-s": "Complete tranquillity", "am-8-t": "Garden & Terrace", "am-8-s": "Beautiful outdoor spaces", "am-9-t": "Linen & Towels", "am-9-s": "Freshly provided", "am-10-t": "Scenic Sea Views", "am-10-s": "Sea or garden views", "am-11-t": "Airport Transfers", "am-11-s": "On request from Yannis", "am-12-t": "Walk-in Shower", "am-12-s": "Hair dryer & toiletries",
+
+        "tag-gal": "Photo Gallery", "title-gal": "See your <em>home away</em> from home", "gal-count": "6 Photos", "gal-1": "Balcony", "gal-2": "Kitchen", "gal-3": "Bathroom", "gal-4": "Bedroom", "gal-5": "Living Room", "gal-6": "Exterior",
+
+        "tag-exp": "Your Experience", "title-exp": "Kremasti — <em>your island base</em>", "exp-lead": "Kremasti is a peaceful, authentic village offering the best of Rhodes without the tourist crowds. From here, the whole island is yours to discover.",
+        "exp-1-t": "Beach Direct Access", "exp-1-s": "Step out of your apartment and onto Kremasti Beach in minutes. Ideal for morning swims and windsurfing.", "exp-2-t": "Prime Connectivity", "exp-2-s": "Minutes from Rhodes International Airport for effortless arrivals, and perfectly positioned for island day trips.", "exp-3-t": "Pristine Old Town", "exp-3-s": "A short journey brings you to Rhodes Old Town, a breathtaking UNESCO World Heritage site.", "exp-4-t": "Events & Day Trips", "exp-4-s": "Discover Lindos, Faliraki, and the Valley of the Butterflies, all easily accessible from your base.", "exp-5-t": "Local Tavernas", "exp-5-s": "Authentic Greek dining, supermarkets, and quaint cafes are all within a relaxed walking distance.", "exp-6-t": "Personalized Care", "exp-6-s": "Your host, Yannis, is always available to organize transfers and share his favorite hidden island gems.",
+
+        "tag-rev": "Guest Reviews", "title-rev": "What our guests <em>say</em>", "rev-overall": "Overall Rating", "rev-exc": "Exceptional",
+        "rev-1": "The best accommodation we could choose in Rhodes. Excellently furnished and equipped apartment in a modern villa, right by the sea. The sea is clean, turquoise, with waves — absolutely breathtaking.", "c-ger": "Germany",
+        "rev-2": "Very nice place by the sea. Brand new units, impeccably clean. Close to the airport, very comfortable. Yannis even organized a pick-up — exceptional service!", "c-uk": "United Kingdom",
+        "rev-3": "Everything in the apartment is new and of high quality, with a beautiful view of the sea. Parking was convenient, the beach within walking distance. We will definitely come back next summer!", "c-nl": "Netherlands",
+
+        "tag-loc": "Find Us", "title-loc": "Kremasti, <em>Rhodes</em>", "loc-desc": "Perfectly positioned on the northwest coast of Rhodes, just moments from everything you need and nothing you don't.",
+        "loc-1": "Rhodes Airport", "loc-2": "Kremasti Beach", "loc-3": "Rhodes Old Town", "loc-4": "Temple of Apollon", "loc-5": "Local Tavernas", "loc-6": "Supermarket", "loc-addr": "📍 Kremasti, Rhodes Island, Greece, 85101",
+
+        "foot-brand": "Luxury beachfront apartments on the beautiful island of Rhodes, Greece. Your private Aegean escape awaits.", "foot-l1": "Quick Links", "foot-l2": "Book Direct", "foot-r1": "Rooms", "foot-c1": "Contact", "foot-addr": "Kremasti, Rhodes Island<br>Greece, 85101", "foot-copy": "All rights reserved.", "foot-design": "Designed with ❤️ for Rhodes Island",
+
+        "mod-title": "Unlock Direct Pricing", "mod-desc": "Booking platforms charge high hidden fees. Contact us directly on your preferred platform to secure your dates at a special discounted rate!", "mod-wa": "Message on WhatsApp", "mod-ig": "Message on Instagram", "mod-em": "Send an Email"
+      },
+      de: {
+        "nav-about": "Über uns", "nav-rooms": "Zimmer", "nav-avail": "Verfügbarkeit", "nav-amenities": "Ausstattung", "nav-gallery": "Galerie", "nav-reviews": "Bewertungen", "nav-loc": "Standort", "nav-book": "Buchen",
+        "hero-eye": "Kremasti, Rhodos — Griechenland", "hero-title": "Wo die Ägäis auf<br><em>Luxus</em> trifft", "hero-sub": "Strandapartments · Nur Schritte vom Strand · 10/10 Bewertet", "hero-scroll": "Entdecken",
+        "lbl-in": "Anreise", "lbl-out": "Abreise", "lbl-guests": "Gäste", "lbl-room": "Zimmertyp", "room-any": "Beliebiges Zimmer",
+        "btn-check": "Verfügbarkeit prüfen", "btn-book": "Buchen", "btn-select-dates": "Daten wählen",
+
+        "tag-about": "Unsere Unterkunft", "title-about": "Ein <em>privater Rückzugsort</em><br>am Meer",
+        "about-p1": "Direkt an den Ufern des Strandes von Kremasti gelegen, bieten unsere Luxusapartments einen unvergleichlichen Rückzugsort auf der wunderschönen Insel Rhodos. Jedes Apartment ist ein Meisterwerk des Komforts — neu gebaut, makellos eingerichtet und nur wenige Schritte von der kristallklaren Ägäis entfernt.",
+        "about-p2": "Unter der liebevollen Leitung von Yannis und seiner Familie sind wir stolz auf eine persönliche, herzliche Atmosphäre, die Gäste Jahr für Jahr zurückkehren lässt. Nur 1 Kilometer vom Flughafen Rhodos entfernt, und dennoch völlig friedlich und privat.",
+        "badge-rated": "Bewertet", "stat-1": "Vom Flughafen", "stat-steps": "Schritte", "stat-2": "Zum Strand", "stat-3": "Gästezufriedenheit", "stat-free": "Kostenlos", "stat-4": "WLAN & Parken",
+
+        "tag-rooms": "Unterkünfte", "title-rooms": "Wählen Sie Ihr <em>perfektes Zimmer</em>", "rooms-desc": "Jedes Apartment ist voll klimatisiert, schallisoliert und mit einer kompletten Küche, Flachbild-TV und eigenem Bad ausgestattet. Bettwäsche und Handtücher werden gestellt.",
+        "room-1": "Studio Apartment", "r1-desc": "Ein wunderschön eingerichtetes, offenes Studio mit voll ausgestatteter Küche, ideal für Paare, die einen romantischen Rückzugsort an der Küste suchen.",
+        "room-2": "Suite mit Meerblick", "r2-desc": "Unsere Signature-Suite bietet einen Panoramablick auf die Ägäis, ein geräumiges Schlafzimmer und eine private Terrasse, auf der Sie jeden Morgen die Meeresbrise begrüßt.", "tag-pop": "Beliebtestes",
+        "room-3": "Deluxe Familienapartment", "r3-desc": "Geräumiges 1-Schlafzimmer-Apartment mit separatem Wohnbereich, perfekt für Familien oder längere Aufenthalte. Schallisoliert für absolute Ruhe und Privatsphäre.", "tag-del": "Deluxe",
+        "f-2g": "2 Gäste", "f-4g": "4 Gäste", "f-sea": "Meerblick", "f-balc": "Balkon", "f-air": "Klimaanlage", "f-kitch": "Küche", "f-pan": "Panoramablick", "f-ter": "Terrasse", "f-show": "Begehbare Dusche", "f-1b": "1 Schlafzimmer", "f-liv": "Wohnzimmer", "f-sound": "Schallisoliert",
+        "from": "ab", "night": "/Nacht",
+
+        "tag-avail": "Live Verfügbarkeit", "title-avail": "<em>Verfügbarkeit</em> prüfen", "avail-desc": "Wählen Sie ein Apartment aus, um die aktuelle Verfügbarkeit zu sehen. Klicken Sie auf grüne Daten, um sie für Ihren Aufenthalt auszuwählen.",
+        "cal-avail": "Verfügbar", "cal-booked": "Gebucht",
+
+        "tag-am": "Was inklusive ist", "title-am": "Alles, was Sie <em>brauchen</em>", "am-lead": "An jedes Detail wurde gedacht, um Ihren Aufenthalt mühelos und unvergesslich zu machen.",
+        "am-1-t": "Direkt am Strand", "am-1-s": "Schritte zum Strand von Kremasti", "am-2-t": "Kostenloser Privatparkplatz", "am-2-s": "Sicheres Parken vor Ort", "am-3-t": "Kostenloses High-Speed WLAN", "am-3-s": "Im gesamten Gebäude", "am-4-t": "Klimaanlage", "am-4-s": "In jedem Zimmer", "am-5-t": "Volle Küche", "am-5-s": "Ofen, Kühlschrank, Kaffeemaschine", "am-6-t": "Flachbild-TV", "am-6-s": "Smart-TV inklusive", "am-7-t": "Schallisoliert", "am-7-s": "Absolute Ruhe", "am-8-t": "Garten & Terrasse", "am-8-s": "Schöne Außenbereiche", "am-9-t": "Bettwäsche & Handtücher", "am-9-s": "Frisch zur Verfügung gestellt", "am-10-t": "Herrlicher Meerblick", "am-10-s": "Meer- oder Gartenblick", "am-11-t": "Flughafentransfer", "am-11-s": "Auf Anfrage bei Yannis", "am-12-t": "Begehbare Dusche", "am-12-s": "Haartrockner & Pflegeprodukte",
+
+        "tag-gal": "Fotogalerie", "title-gal": "Ihr <em>Zuhause</em> in der Ferne", "gal-count": "6 Fotos", "gal-1": "Balkon", "gal-2": "Küche", "gal-3": "Badezimmer", "gal-4": "Schlafzimmer", "gal-5": "Wohnzimmer", "gal-6": "Außenbereich",
+
+        "tag-exp": "Ihr Erlebnis", "title-exp": "Kremasti — <em>Ihre Inselbasis</em>", "exp-lead": "Kremasti ist ein friedliches, authentisches Dorf, das das Beste von Rhodos ohne die Touristenmassen bietet. Von hier aus gehört Ihnen die ganze Insel.",
+        "exp-1-t": "Direkter Strandzugang", "exp-1-s": "Verlassen Sie Ihr Apartment und sind in Minuten am Strand von Kremasti. Ideal für morgendliches Schwimmen und Windsurfen.", "exp-2-t": "Beste Anbindung", "exp-2-s": "Minuten vom internationalen Flughafen Rhodos entfernt für eine mühelose Ankunft und perfekt positioniert für Inselausflüge.", "exp-3-t": "Unberührte Altstadt", "exp-3-s": "Eine kurze Reise bringt Sie in die Altstadt von Rhodos, eine atemberaubende UNESCO-Weltkulturerbestätte.", "exp-4-t": "Events & Tagesausflüge", "exp-4-s": "Entdecken Sie Lindos, Faliraki und das Tal der Schmetterlinge, alle leicht von Ihrer Basis aus erreichbar.", "exp-5-t": "Lokale Tavernen", "exp-5-s": "Authentisches griechisches Essen, Supermärkte und gemütliche Cafés sind alle bequem zu Fuß erreichbar.", "exp-6-t": "Persönliche Betreuung", "exp-6-s": "Ihr Gastgeber, Yannis, ist immer verfügbar, um Transfers zu organisieren und seine liebsten versteckten Inseljuwelen zu teilen.",
+
+        "tag-rev": "Gästebewertungen", "title-rev": "Was unsere Gäste <em>sagen</em>", "rev-overall": "Gesamtbewertung", "rev-exc": "Hervorragend",
+        "rev-1": "Die beste Unterkunft, die wir auf Rhodos wählen konnten. Hervorragend eingerichtetes und ausgestattetes Apartment in einer modernen Villa, direkt am Meer. Das Meer ist sauber, türkis, mit Wellen — absolut atemberaubend.", "c-ger": "Deutschland",
+        "rev-2": "Sehr schöner Ort am Meer. Brandneue Einheiten, makellos sauber. In der Nähe des Flughafens, sehr komfortabel. Yannis hat sogar eine Abholung organisiert — außergewöhnlicher Service!", "c-uk": "Großbritannien",
+        "rev-3": "Alles in der Wohnung ist neu und von hoher Qualität, mit einem wunderschönen Blick auf das Meer. Das Parken war bequem, der Strand ist zu Fuß erreichbar. Wir werden auf jeden Fall nächsten Sommer wiederkommen!", "c-nl": "Niederlande",
+
+        "tag-loc": "Standort", "title-loc": "Kremasti, <em>Rhodos</em>", "loc-desc": "Perfekt an der Nordwestküste von Rhodos gelegen, nur wenige Minuten von allem entfernt, was Sie brauchen.",
+        "loc-1": "Flughafen Rhodos", "loc-2": "Strand von Kremasti", "loc-3": "Rhodos Altstadt", "loc-4": "Apollontempel", "loc-5": "Lokale Tavernen", "loc-6": "Supermarkt", "loc-addr": "📍 Kremasti, Insel Rhodos, Griechenland, 85101",
+
+        "foot-brand": "Luxuriöse Strandapartments auf der wunderschönen Insel Rhodos, Griechenland. Ihr privater Ausflug in die Ägäis erwartet Sie.", "foot-l1": "Schnelllinks", "foot-l2": "Direkt buchen", "foot-r1": "Zimmer", "foot-c1": "Kontakt", "foot-addr": "Kremasti, Insel Rhodos<br>Griechenland, 85101", "foot-copy": "Alle Rechte vorbehalten.", "foot-design": "Mit ❤️ für die Insel Rhodos entworfen",
+
+        "mod-title": "Direktpreis freischalten", "mod-desc": "Buchungsplattformen erheben hohe versteckte Gebühren. Kontaktieren Sie uns direkt, um Ihre Daten zu einem speziellen Rabattpreis zu sichern!", "mod-wa": "Nachricht via WhatsApp", "mod-ig": "Nachricht auf Instagram", "mod-em": "E-Mail senden"
+      },
+      el: {
+        "nav-about": "Σχετικά", "nav-rooms": "Δωμάτια", "nav-avail": "Διαθεσιμότητα", "nav-amenities": "Παροχές", "nav-gallery": "Γκαλερί", "nav-reviews": "Κριτικές", "nav-loc": "Τοποθεσία", "nav-book": "Κράτηση",
+        "hero-eye": "Κρεμαστή, Ρόδος — Ελλάδα", "hero-title": "Εκεί που το Αιγαίο<br>συναντά την <em>πολυτέλεια</em>", "hero-sub": "Παραθαλάσσια διαμερίσματα · Βήματα από την παραλία · Βαθμολογία 10/10", "hero-scroll": "Εξερεύνηση",
+        "lbl-in": "Άφιξη", "lbl-out": "Αναχώρηση", "lbl-guests": "Άτομα", "lbl-room": "Τύπος Δωματίου", "room-any": "Οποιοδήποτε",
+        "btn-check": "Διαθεσιμότητα", "btn-book": "Κράτηση", "btn-select-dates": "Επιλογή Ημερομηνιών",
+
+        "tag-about": "Σχετικα με εμας", "title-about": "Ενα <em>ιδιωτικό καταφύγιο</em><br>δίπλα στη θάλασσα",
+        "about-p1": "Ακριβώς πάνω στην παραλία της Κρεμαστής, τα πολυτελή διαμερίσματά μας προσφέρουν μια απαράμιλλη απόδραση στο πανέμορφο νησί της Ρόδου. Κάθε διαμέρισμα είναι ένα αριστούργημα άνεσης — νεόδμητο, άψογα επιπλωμένο και μόλις λίγα βήματα από τα κρυστάλλινα νερά του Αιγαίου.",
+        "about-p2": "Υπό την προσωπική φροντίδα του Γιάννη και της οικογένειάς του, περηφανευόμαστε για τη ζεστή, αυθεντική φιλοξενία που κάνει τους επισκέπτες μας να επιστρέφουν κάθε χρόνο. Μόλις 1 χιλιόμετρο από το Αεροδρόμιο της Ρόδου, σε απόλυτη ησυχία και ιδιωτικότητα.",
+        "badge-rated": "Βαθμολογία", "stat-1": "Από Αεροδρόμιο", "stat-steps": "Βήματα", "stat-2": "Από την παραλία", "stat-3": "Ικανοποίηση", "stat-free": "Δωρεάν", "stat-4": "WiFi & Πάρκινγκ",
+
+        "tag-rooms": "Διαμονη", "title-rooms": "Επιλέξτε τον <em>ιδανικό χώρο</em>", "rooms-desc": "Κάθε διαμέρισμα είναι πλήρως κλιματιζόμενο, ηχομονωμένο και εξοπλισμένο με πλήρη κουζίνα, τηλεόραση επίπεδης οθόνης και ιδιωτικό μπάνιο. Παρέχονται κλινοσκεπάσματα και πετσέτες.",
+        "room-1": "Στούντιο", "r1-desc": "Ένα όμορφα διακοσμημένο στούντιο ενιαίας διαρρύθμισης με πλήρως εξοπλισμένη κουζίνα, ιδανικό για ζευγάρια που αναζητούν μια ρομαντική απόδραση.",
+        "room-2": "Σουίτα με Θέα", "r2-desc": "Η χαρακτηριστική μας σουίτα διαθέτει πανοραμική θέα στο Αιγαίο, ευρύχωρο υπνοδωμάτιο και ιδιωτική βεράντα όπου η θαλασσινή αύρα σας καλωσορίζει κάθε πρωί.", "tag-pop": "Δημοφιλές",
+        "room-3": "Οικογενειακό Διαμέρισμα", "r3-desc": "Ευρύχωρο διαμέρισμα 1 υπνοδωματίου με ξεχωριστό σαλόνι, ιδανικό για οικογένειες ή μεγαλύτερες διαμονές. Πλήρως ηχομονωμένο.", "tag-del": "Deluxe",
+        "f-2g": "2 Άτομα", "f-4g": "4 Άτομα", "f-sea": "Θέα Θάλασσα", "f-balc": "Μπαλκόνι", "f-air": "Κλιματισμός", "f-kitch": "Κουζίνα", "f-pan": "Πανοραμική Θέα", "f-ter": "Βεράντα", "f-show": "Ντουζιέρα", "f-1b": "1 Υπνοδωμάτιο", "f-liv": "Σαλόνι", "f-sound": "Ηχομόνωση",
+        "from": "από", "night": "/βράδυ",
+
+        "tag-avail": "Διαθεσιμοτητα", "title-avail": "Ελέγξτε <em>Διαθεσιμότητα</em>", "avail-desc": "Επιλέξτε ένα διαμέρισμα για να δείτε την τρέχουσα διαθεσιμότητά του. Κάντε κλικ στις πράσινες ημερομηνίες για να επιλέξετε τη διαμονή σας.",
+        "cal-avail": "Διαθέσιμο", "cal-booked": "Κρατημένο",
+
+        "tag-am": "Παροχες", "title-am": "Όλα όσα <em>χρειάζεστε</em>", "am-lead": "Έχουμε φροντίσει κάθε λεπτομέρεια για να κάνουμε τη διαμονή σας αβίαστη και αξέχαστη.",
+        "am-1-t": "Μπροστά στη Θάλασσα", "am-1-s": "Βήματα από την παραλία", "am-2-t": "Δωρεάν Ιδιωτικό Πάρκινγκ", "am-2-s": "Ασφαλής χώρος στάθμευσης", "am-3-t": "Δωρεάν Γρήγορο WiFi", "am-3-s": "Σε όλο το κατάλυμα", "am-4-t": "Κλιματισμός", "am-4-s": "Σε κάθε δωμάτιο", "am-5-t": "Πλήρης Κουζίνα", "am-5-s": "Φούρνος, ψυγείο, καφετιέρα", "am-6-t": "Τηλεόραση", "am-6-s": "Smart TV επίπεδης οθόνης", "am-7-t": "Ηχομόνωση", "am-7-s": "Απόλυτη ησυχία", "am-8-t": "Κήπος & Βεράντα", "am-8-s": "Όμορφοι εξωτερικοί χώροι", "am-9-t": "Κλινοσκεπάσματα & Πετσέτες", "am-9-s": "Φρεσκοπλυμένα", "am-10-t": "Μαγευτική Θέα", "am-10-s": "Θέα στη θάλασσα ή τον κήπο", "am-11-t": "Μεταφορά από Αεροδρόμιο", "am-11-s": "Κατόπιν συνεννόησης", "am-12-t": "Άνετη Ντουζιέρα", "am-12-s": "Σεσουάρ & είδη μπάνιου",
+
+        "tag-gal": "Φωτογραφιες", "title-gal": "Δείτε το <em>δεύτερο</em> σπίτι σας", "gal-count": "6 Φωτογραφίες", "gal-1": "Μπαλκόνι", "gal-2": "Κουζίνα", "gal-3": "Μπάνιο", "gal-4": "Υπνοδωμάτιο", "gal-5": "Σαλόνι", "gal-6": "Εξωτερικό",
+
+        "tag-exp": "Εμπειρια", "title-exp": "Κρεμαστή — <em>η βάση σας στο νησί</em>", "exp-lead": "Η Κρεμαστή είναι ένα ήσυχο, αυθεντικό χωριό που προσφέρει τα καλύτερα της Ρόδου χωρίς τα πλήθη των τουριστών. Από εδώ, ολόκληρο το νησί είναι δικό σας για να το ανακαλύψετε.",
+        "exp-1-t": "Άμεση Πρόσβαση στην Παραλία", "exp-1-s": "Βγείτε από το διαμέρισμά σας και βρεθείτε στην παραλία της Κρεμαστής σε λίγα λεπτά. Ιδανικό για κολύμπι και windsurfing.", "exp-2-t": "Εξαιρετική Σύνδεση", "exp-2-s": "Λίγα λεπτά από το αεροδρόμιο της Ρόδου για ξεκούραστη άφιξη, και σε τέλεια θέση για ημερήσιες εκδρομές.", "exp-3-t": "Η Παλιά Πόλη", "exp-3-s": "Μια σύντομη διαδρομή σας μεταφέρει στην Παλιά Πόλη της Ρόδου, ένα Μνημείο Παγκόσμιας Κληρονομιάς της UNESCO.", "exp-4-t": "Εκδηλώσεις & Εκδρομές", "exp-4-s": "Ανακαλύψτε τη Λίνδο, το Φαληράκι και την Κοιλάδα των Πεταλούδων, όλα εύκολα προσβάσιμα.", "exp-5-t": "Τοπικές Ταβέρνες", "exp-5-s": "Αυθεντικό ελληνικό φαγητό, σούπερ μάρκετ και γραφικά καφέ βρίσκονται σε μικρή απόσταση με τα πόδια.", "exp-6-t": "Προσωπική Φροντίδα", "exp-6-s": "Ο οικοδεσπότης σας, Γιάννης, είναι πάντα διαθέσιμος για να μοιραστεί τα αγαπημένα του κρυμμένα μυστικά του νησιού.",
+
+        "tag-rev": "Κριτικες", "title-rev": "Τι λένε οι <em>επισκέπτες</em> μας", "rev-overall": "Συνολική Βαθμολογία", "rev-exc": "Εξαιρετικό",
+        "rev-1": "Το καλύτερο κατάλυμα που θα μπορούσαμε να επιλέξουμε στη Ρόδο. Άριστα επιπλωμένο και εξοπλισμένο διαμέρισμα σε μια μοντέρνα βίλα, ακριβώς δίπλα στη θάλασσα. Η θάλασσα είναι καθαρή, τιρκουάζ, με κύματα — απολύτως μαγευτική.", "c-ger": "Γερμανία",
+        "rev-2": "Πολύ ωραίο μέρος δίπλα στη θάλασσα. Ολοκαίνουργια διαμερίσματα, πεντακάθαρα. Κοντά στο αεροδρόμιο, πολύ βολικό. Ο Γιάννης οργάνωσε ακόμη και την παραλαβή μας — εξαιρετική εξυπηρέτηση!", "c-uk": "Ηνωμένο Βασίλειο",
+        "rev-3": "Όλα στο διαμέρισμα είναι καινούργια και υψηλής ποιότητας, με όμορφη θέα στη θάλασσα. Το πάρκινγκ ήταν βολικό, η παραλία σε κοντινή απόσταση με τα πόδια. Σίγουρα θα επιστρέψουμε το επόμενο καλοκαίρι!", "c-nl": "Ολλανδία",
+
+        "tag-loc": "Τοποθεσια", "title-loc": "Κρεμαστή, <em>Ρόδος</em>", "loc-desc": "Σε ιδανική τοποθεσία στη βορειοδυτική ακτή της Ρόδου, μόλις λίγα λεπτά από όλα όσα χρειάζεστε.",
+        "loc-1": "Αεροδρόμιο Ρόδου", "loc-2": "Παραλία Κρεμαστής", "loc-3": "Παλιά Πόλη Ρόδου", "loc-4": "Ναός του Απόλλωνα", "loc-5": "Τοπικές Ταβέρνες", "loc-6": "Σούπερ Μάρκετ", "loc-addr": "📍 Κρεμαστή, Ρόδος, Ελλάδα, 85101",
+
+        "foot-brand": "Πολυτελή παραθαλάσσια διαμερίσματα στο πανέμορφο νησί της Ρόδου. Η ιδιωτική σας απόδραση στο Αιγαίο σας περιμένει.", "foot-l1": "Γρηγοροι Συνδεσμοι", "foot-l2": "Κράτηση", "foot-r1": "Δωματια", "foot-c1": "Επικοινωνια", "foot-addr": "Κρεμαστή, Ρόδος<br>Ελλάδα, 85101", "foot-copy": "Με την επιφύλαξη παντός δικαιώματος.", "foot-design": "Σχεδιασμένο με ❤️ για τη Ρόδο",
+
+        "mod-title": "Ξεκλείδωμα Καλύτερης Τιμής", "mod-desc": "Οι πλατφόρμες κρατήσεων χρεώνουν υψηλές κρυφές προμήθειες. Επικοινωνήστε απευθείας μαζί μας για να κλείσετε τη διαμονή σας σε ειδική εκπτωτική τιμή!", "mod-wa": "Μήνυμα στο WhatsApp", "mod-ig": "Μήνυμα στο Instagram", "mod-em": "Αποστολή Email"
+      }
+    };
+
+    function setLang(lang) {
+      localStorage.setItem('seaside_lang', lang);
+      const t = translations[lang] || translations['en'];
+
+      // Update basic text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+
+      // Update nodes containing HTML (like <em> or <br> tags)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key]) el.innerHTML = t[key];
+      });
+
+      // Update flag button active states
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.dataset.lang === lang) {
+          btn.setAttribute('data-active', 'true');
+        } else {
+          btn.setAttribute('data-active', 'false');
+        }
+      });
+
+      // Re-trigger the calendar button text to update instantly
+      updateCalBookBtn();
     }
 
-    // ── Nav scroll ─────────────────────────────────────────
+    // Initialize Language on Page Load
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('seaside_lang') || 'en';
+      setLang(savedLang);
+    });
+
     window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60); });
 
-    // ── Min dates ──────────────────────────────────────────
     const today = new Date().toISOString().split('T')[0];
     document.querySelectorAll('input[type="date"]').forEach(i => i.min = today);
 
-    // ── Scroll reveal ──────────────────────────────────────
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    // Direct Contact Modal function - REPLACING STRIPE LOGIC
+    function openDirectModal(roomName) {
+      const lang = localStorage.getItem('seaside_lang') || 'en';
+      const ci = document.getElementById('check-in') ? document.getElementById('check-in').value : '';
+      const co = document.getElementById('check-out') ? document.getElementById('check-out').value : '';
+      
+      // Auto-generate the WhatsApp Message
+      let waMsg = `Hi Yannis, I found your website! I am interested in the ${roomName}.`;
+      if(ci && co) { waMsg += ` I am looking for dates from ${ci} to ${co}.`; }
+      waMsg += ` Can you give me your best direct price?`;
+      
+      document.getElementById('modal-wa-btn').href = `https://wa.me/302241000000?text=${encodeURIComponent(waMsg)}`;
+      
+      // Auto-generate the Email Subject and Body
+      let emSub = `Booking Inquiry: ${roomName}`;
+      let emBody = `Hello Seaside Apartments,\n\nI am interested in booking the ${roomName}.\n`;
+      if(ci && co) { emBody += `Dates: ${ci} to ${co}\n`; }
+      emBody += `\nPlease let me know your best direct price.\n\nThank you!`;
+      
+      document.getElementById('modal-em-btn').href = `mailto:info@seasideapartments-rhodes.gr?subject=${encodeURIComponent(emSub)}&body=${encodeURIComponent(emBody)}`;
 
-    // ── Price calculator (modal) ───────────────────────────
-    function calcModalPrice() {
-      const ci = document.getElementById('m-in').value;
-      const co = document.getElementById('m-out').value;
-      const price = window._modalPricePerNight || 0;
-      const calc = document.getElementById('modal-price-calc');
-      if (ci && co && ci < co && price) {
-        const nights = Math.ceil((new Date(co) - new Date(ci)) / 86400000);
-        document.getElementById('calc-nights').textContent = nights;
-        document.getElementById('calc-total').textContent = `€${nights * price}`;
-        calc.style.display = 'block';
-      } else { calc.style.display = 'none'; }
+      document.getElementById('direct-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
-    document.getElementById('m-in').addEventListener('change', calcModalPrice);
-    document.getElementById('m-out').addEventListener('change', calcModalPrice);
+    
+    function closeModal() { document.getElementById('direct-modal').classList.remove('open'); document.body.style.overflow = ''; }
+    function closeModalOutside(e) { if (e.target === document.getElementById('direct-modal')) closeModal(); }
 
-    // ── Stripe checkout call ───────────────────────────────
-    async function goToStripe(payload, btnEl) {
-      btnEl.textContent = '⏳ Redirecting to payment...';
-      btnEl.disabled = true;
-      try {
-        const res = await fetch(EDGE_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_KEY}` },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          showToast(data.error || 'Something went wrong. Please try again.', 'error');
-          btnEl.textContent = btnEl.dataset.label;
-          btnEl.disabled = false;
-          return;
-        }
-        window.location.href = data.url;
-      } catch (err) {
-        showToast('Connection error. Please try again.', 'error');
-        btnEl.textContent = btnEl.dataset.label;
-        btnEl.disabled = false;
-      }
-    }
-
-
-    // ── Submit MODAL form ──────────────────────────────────
-    async function submitModal() {
-      const fname = document.getElementById('m-fname').value.trim();
-      const email = document.getElementById('m-email').value.trim();
-      const ci = document.getElementById('m-in').value;
-      const co = document.getElementById('m-out').value;
-      const guests = document.getElementById('m-guests').value;
-      const phone = iti.getNumber() || '';
-      const room = document.getElementById('modal-name').textContent;
-      const gdpr = document.getElementById('m-gdpr').checked; // Check for GDPR
-
-      if (!fname || !email || !ci || !co) { showToast('Please fill in your name, email and dates.', 'error'); return; }
-      if (ci >= co) { showToast('Check-out must be after check-in.', 'error'); return; }
-      if (!gdpr) { showToast('Please agree to the Terms & Conditions.', 'error'); return; } // Validate GDPR
-
-      const btn = document.getElementById('modal-submit-btn');
-      btn.dataset.label = btn.textContent;
-      await goToStripe({ room_type: room, check_in: ci, check_out: co, guests, first_name: fname, email, phone }, btn);
-    }
-
-    // ── Gallery Lightbox ───────────────────────────────────
     const lbImages = [
       { src: '484401212.jpg', caption: 'Balcony' }, { src: '343570641.jpg', caption: 'Kitchen' },
       { src: '343564945.jpg', caption: 'Bathroom' }, { src: '343564591.jpg', caption: 'Bedroom' },
@@ -3252,7 +1311,6 @@
     function updateLightbox() { const { src, caption } = lbImages[lbIndex]; document.getElementById('lb-img').src = src; document.getElementById('lb-img').alt = caption; document.getElementById('lb-caption').textContent = caption; document.getElementById('lb-counter').textContent = `${lbIndex + 1} / ${lbImages.length}`; }
     document.addEventListener('keydown', e => { const lb = document.getElementById('gallery-lightbox'); if (!lb.classList.contains('open')) return; if (e.key === 'ArrowRight') lbNav(1); if (e.key === 'ArrowLeft') lbNav(-1); if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
 
-    // ── Availability Calendar ────────────────────────────────
     const roomsAvailability = {
       'Studio Apartment': generateMockBookings(0.3),
       'Sea View Suite': generateMockBookings(0.6),
@@ -3292,7 +1350,11 @@
       const year = currentCalDate.getFullYear();
       const month = currentCalDate.getMonth();
 
-      document.getElementById('cal-month-year').textContent = new Date(year, month, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      // Only format the month string based on the active language
+      const lang = localStorage.getItem('seaside_lang') || 'en';
+      const loc = lang === 'de' ? 'de-DE' : lang === 'el' ? 'el-GR' : 'en-US';
+
+      document.getElementById('cal-month-year').textContent = new Date(year, month, 1).toLocaleDateString(loc, { month: 'long', year: 'numeric' });
 
       const firstDay = new Date(year, month, 1).getDay();
       const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -3300,7 +1362,14 @@
       const grid = document.getElementById('cal-grid');
       grid.innerHTML = '';
 
-      const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      // Update days of week based on language
+      const daysEN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const daysDE = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+      const daysEL = ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ'];
+      let dayLabels = daysEN;
+      if (lang === 'de') dayLabels = daysDE;
+      if (lang === 'el') dayLabels = daysEL;
+
       dayLabels.forEach(d => {
         const div = document.createElement('div');
         div.className = 'cal-day-label';
@@ -3369,7 +1438,9 @@
           if (valid) {
             calSelection.push(dateStr);
           } else {
-            showToast('Selection includes booked dates.', 'error');
+            const lang = localStorage.getItem('seaside_lang') || 'en';
+            const msg = lang === 'de' ? 'Auswahl enthält gebuchte Daten.' : lang === 'el' ? 'Η επιλογή περιέχει κρατημένες ημερομηνίες.' : 'Selection includes booked dates.';
+            alert(msg);
             calSelection = [dateStr];
           }
         } else {
@@ -3383,25 +1454,34 @@
 
     function updateCalBookBtn() {
       const btn = document.getElementById('cal-book-btn');
+      const lang = localStorage.getItem('seaside_lang') || 'en';
+
+      let roomTransKey = '';
+      if (currentCalRoom === 'Studio Apartment') roomTransKey = 'room-1';
+      if (currentCalRoom === 'Sea View Suite') roomTransKey = 'room-2';
+      if (currentCalRoom === 'Deluxe Family Apartment') roomTransKey = 'room-3';
+
+      const displayRoom = translations[lang][roomTransKey] || currentCalRoom;
+
       if (calSelection.length === 2) {
-        btn.textContent = `Book ${currentCalRoom} →`;
+        btn.textContent = `${translations[lang]['nav-book'] || 'Book'} ${displayRoom} →`;
         btn.disabled = false;
       } else if (calSelection.length === 1) {
-        btn.textContent = 'Select Checkout Date';
+        btn.textContent = translations[lang]['lbl-out'] || 'Select Checkout Date';
         btn.disabled = true;
       } else {
-        btn.textContent = 'Select Dates to Book';
+        btn.textContent = translations[lang]['btn-select-dates'] || 'Select Dates to Book';
         btn.disabled = true;
       }
     }
 
+    // Call openDirectModal instead of opening Stripe
     function bookFromCalendar() {
       if (calSelection.length === 2) {
         document.getElementById('check-in').value = calSelection[0];
         document.getElementById('check-out').value = calSelection[1];
         let optVal = currentCalRoom === 'Deluxe Family' ? 'Deluxe Family Apartment' : currentCalRoom;
-        const priceNum = ROOM_PRICES[optVal] || 0;
-        openModal(optVal, '€' + priceNum, priceNum);
+        openDirectModal(optVal);
       }
     }
 
@@ -3417,14 +1497,22 @@
 
     renderCalendar();
 
-    // ── Quick book widget ──────────────────────────────────
+    // Call openDirectModal instead of opening Stripe
     function quickBook() {
       const ci = document.getElementById('check-in').value;
       const co = document.getElementById('check-out').value;
       const rt = document.getElementById('room-type').value;
 
-      if (!ci || !co) { showToast('Please select check-in and check-out dates.', 'error'); return; }
-      if (ci >= co) { showToast('Check-out must be after check-in.', 'error'); return; }
+      if (!ci || !co) {
+        const lang = localStorage.getItem('seaside_lang') || 'en';
+        const msg = lang === 'de' ? 'Bitte wählen Sie die Daten aus.' : lang === 'el' ? 'Παρακαλώ επιλέξτε ημερομηνίες.' : 'Please select dates.';
+        alert(msg); return;
+      }
+      if (ci >= co) {
+        const lang = localStorage.getItem('seaside_lang') || 'en';
+        const msg = lang === 'de' ? 'Abreise muss nach Anreise liegen.' : lang === 'el' ? 'Η αναχώρηση πρέπει να είναι μετά την άφιξη.' : 'Check-out must be after check-in.';
+        alert(msg); return;
+      }
 
       if (rt && rt !== '') {
         currentCalRoom = rt;
@@ -3447,55 +1535,29 @@
       if (calEl) {
         calEl.scrollIntoView({ behavior: 'smooth' });
       }
+      
+      let optVal = currentCalRoom === 'Deluxe Family' ? 'Deluxe Family Apartment' : currentCalRoom;
+      openDirectModal(optVal);
     }
 
-    // ── Modal ──────────────────────────────────────────────
-    function openModal(name, priceStr, priceNum) {
-      document.getElementById('modal-name').textContent = name;
-      document.getElementById('modal-price').textContent = 'From ' + priceStr + ' per night';
-      window._modalPricePerNight = priceNum;
-      const ci = document.getElementById('check-in').value;
-      const co = document.getElementById('check-out').value;
-      if (ci) document.getElementById('m-in').value = ci;
-      if (co) document.getElementById('m-out').value = co;
-      calcModalPrice();
-      document.getElementById('modal').classList.add('open');
-      document.body.style.overflow = 'hidden';
+    // Call openDirectModal instead of opening Stripe
+    function openModal(internalName, priceStr, priceNum) {
+      openDirectModal(internalName);
     }
-    function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
-    function closeModalOutside(e) { if (e.target === document.getElementById('modal')) closeModal(); }
 
-    // ── Mobile menu ────────────────────────────────────────
     let menuOpen = false;
     function toggleMenu() {
-      const links = document.querySelector('.nav-links');
+      const menu = document.querySelector('.full-screen-menu');
+      const ham = document.querySelector('.hamburger');
       menuOpen = !menuOpen;
       if (menuOpen) {
-        links.style.display = 'flex';
-        links.style.flexDirection = 'column';
-        links.style.position = 'fixed';
-        links.style.top = '0';
-        links.style.left = '0';
-        links.style.right = '0';
-        links.style.height = '100vh';
-        links.style.overflowY = 'auto';
-        links.style.background = 'var(--navy)';
-        links.style.padding = '100px 40px 40px';
-        links.style.gap = '30px';
-        links.style.zIndex = '99';
-        links.style.fontSize = '18px';
-      }
-      else {
-        links.style.display = 'none';
-        links.style.height = 'auto';
+        menu.classList.add('open');
+        ham.classList.add('open');
+      } else {
+        menu.classList.remove('open');
+        ham.classList.remove('open');
       }
     }
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (menuOpen) toggleMenu();
-      });
-    });
 
     document.querySelectorAll('.room-card').forEach((card, i) => { card.style.transitionDelay = (i * .12) + 's'; });
 
@@ -3584,7 +1646,6 @@
       }).join('');
     }
 
-    // Add Manual Booking Function
     async function addManualBooking() {
       const name = document.getElementById('admin-manual-name').value.trim();
       const room = document.getElementById('admin-manual-room').value;
@@ -3600,7 +1661,6 @@
         return;
       }
 
-      // Calculate nights and price so it matches normal bookings
       const nights = Math.ceil((new Date(co) - new Date(ci)) / 86400000);
       const pricePerNight = ROOM_PRICES[room] || 0;
       const totalAmount = nights * pricePerNight;
@@ -3615,7 +1675,7 @@
         room_type: room,
         nights: nights,
         total_amount: totalAmount,
-        status: 'paid' // "paid" ensures Flatpickr automatically blocks these dates for everyone else!
+        status: 'paid'
       });
 
       if (error) {
@@ -3625,12 +1685,10 @@
 
       alert('Dates blocked successfully!');
 
-      // Clear inputs
       document.getElementById('admin-manual-name').value = '';
       document.getElementById('admin-manual-in').value = '';
       document.getElementById('admin-manual-out').value = '';
 
-      // Instantly refresh the table to show the new booking
       fetchLiveBookings();
     }
   </script>
