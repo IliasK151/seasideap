@@ -41,7 +41,11 @@
     </div>
     <div id="content" style="display:none">
       <div class="card-header">
-        <div class="checkmark">✅</div>
+        <div class="checkmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
         <h1>Booking Confirmed!</h1>
         <p>Thank you — your payment was successful</p>
       </div>
@@ -52,7 +56,7 @@
           <span class="total-value" id="total-paid"></span>
         </div>
         <p style="font-size:13px;color:var(--text-mid);line-height:1.6">A confirmation email has been sent to your inbox. Yannis and the team look forward to welcoming you to Kremasti! 🌊</p>
-        <a href="index.html" class="btn-home">← Back to Seaside Apartments</a>
+        <a href="seasideap.html" class="btn-home">← Back to Seaside Apartments</a>
         <p class="contact-note">Questions? Email us at <a href="mailto:info@seasideapartments-rhodes.gr">info@seasideapartments-rhodes.gr</a></p>
       </div>
     </div>
@@ -90,13 +94,13 @@
           `;
           document.getElementById('total-paid').textContent = `€${data.total_amount}`;
         } else {
-          document.getElementById('details').innerHTML = '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">Payment received ✅</span></div>';
+          document.getElementById('details').innerHTML = '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">Payment received</span></div>';
           document.getElementById('total-paid').textContent = 'Paid';
         }
       } catch (err) {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
-        document.getElementById('details').innerHTML = '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">Payment confirmed ✅</span></div>';
+        document.getElementById('details').innerHTML = '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">Payment confirmed</span></div>';
         document.getElementById('total-paid').textContent = 'Paid';
       }
     }
