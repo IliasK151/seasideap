@@ -401,30 +401,31 @@
     }
 
     .booking-widget {
-      background: rgba(255, 255, 255, .95);
-      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(12px);
       border-radius: 60px;
-      padding: 10px 10px 10px 36px;
+      padding: 12px;
       display: flex;
       gap: 12px;
       align-items: center;
       max-width: 880px;
       margin: 0 auto;
       box-shadow: 0 16px 40px rgba(0, 0, 0, .08);
-      border: 1px solid rgba(255, 255, 255, .4)
+      border: 1px solid rgba(255, 255, 255, .3)
     }
 
     .widget-field {
       flex: 1;
-      padding: 8px 16px;
-      border-right: 1px solid rgba(0, 0, 0, .08);
+      padding: 12px 20px;
+      border-right: none;
       min-width: 0;
-      border-radius: 12px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.5);
       transition: background-color .2s ease
     }
 
     .widget-field:hover {
-      background-color: rgba(0, 0, 0, .03)
+      background-color: rgba(255, 255, 255, 0.7)
     }
 
     .widget-field:last-of-type {
